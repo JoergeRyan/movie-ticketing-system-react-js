@@ -1,4 +1,4 @@
-#registerBody {
+/* #registerBody {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -7,9 +7,13 @@
     background-image: url("https://i.pinimg.com/originals/d5/e1/54/d5e154c2fd72fc5dab6ab4440fab755f.jpg");
     background-size: cover;
     background-position: center;
-  }
-  
+  } 
+   */
   .card {
+    color: rgb(99, 14, 99);
+    font-size: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
     width: 50vh;
     text-align: center;
     padding: 20px;
@@ -25,8 +29,10 @@ input{
 
 .ant-btn{
   font-size: 15px;
+  background:#4c00b4;
 }
 
 .ant-btn + .ant-btn {
+  background:#4c00b4;
   margin-left: 40px;
 }

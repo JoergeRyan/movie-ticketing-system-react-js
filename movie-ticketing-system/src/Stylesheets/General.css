@@ -1,9 +1,21 @@
-#menuBodyContainer,#menuBodyCss{
-    flex-wrap: wrap;
-    text-align: center;
+body {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-  
-    margin-bottom: 5%;    
+    min-height: 100vh;
+    background-color: rgb(99, 14, 99);
+    /* background-size: cover;
+    background-position: center; */
+}
+
+#menuBodyContainer,
+#menuBodyCss {
+  flex-wrap: wrap;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin-bottom: 5%;
 }
