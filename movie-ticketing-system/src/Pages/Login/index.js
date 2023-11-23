@@ -1,6 +1,6 @@
 import React, {useState}from "react";
 import "../../Stylesheets/Login.css";
-
+import { Button, Form } from 'antd';
 // import password_icon from "../../Assets/password.png";
 // import username_icon from "../../Assets/username.png";
 
@@ -32,8 +32,8 @@ const Login = () => {
       
       
       <div className="submit-container">
-        <div className={action==="Login"?"submit gray":"submit"} onClick={()=>{setAction("Register")}}>Register</div>
-        <div className={action==="Register"?"submit gray":"submit"} onClick={() =>{setAction("Login")}}>Login</div>
+        <Button className={action==="Login"?"submit gray":"submit"} onClick={()=>{setAction("Register")}}>Register</Button>
+        <Button className={action==="Register"?"submit gray":"submit"} onClick={() =>{setAction("Login")}}>Login</Button>
       </div>
     </div>
   );
