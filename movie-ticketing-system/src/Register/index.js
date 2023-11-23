@@ -1,46 +1,48 @@
 import React from 'react'
 import { Button, Form} from 'antd';
-
+import './index.css';
 
 function Register() {
   return (
-    <div className="flex justify-center h-screen items-center bg-primary">
+    <div id='registerBody' className="flex justify-center h-screen items-center bg-primary">
        <div className='card p-3 w-400'>
           <h1 className='text-xl mb-2'>
-              Mylene Movies - Register
+              Register
           </h1>
           <hr/>
           <Form
             layout = "vertical">
               <Form.Item
-                  label = "Name"
+                  label = ""
                   name = "name"
                   rules = {[{required:true, message: "Please input your name!"}]}  
               >
-                  <input type="text"></input>
+                  <input placeholder= "Input Name" type="text"></input>
               </Form.Item>
               <Form.Item
-                  label = "Email"
+                  label = ""
                   name = "email"
                   rules = {[{required:true, message: "Please input your email!"}]}  
               >
-                  <input type="text"></input>
+                  <input placeholder= "Input Email Address" type="text"></input>
               </Form.Item>
               <Form.Item
-                  label = "Password"
+                  label = ""
                   name = "password"
                   rules = {[{required:true, message: "Please input your password!"}]}  
               >
-                  <input type="password"></input>
+                  <input placeholder= "Input Password" type="password"></input>
               </Form.Item>
               <Form.Item
-                  label = "Confirm Password"
+                  label = ""
                   name = "confirmpassword"
                   rules = {[{required:true, message: "Please confirm your password!"}]}  
               >
-                  <input type="confpassword"></input>
+                  <input placeholder= "Confirm Password" type="password"></input>
               </Form.Item>
-              <Button type="primary" htmlType='submit' title='REGISTER'/>
+              <Button  type="primary" htmlType='submit' title='REGISTER'>
+                Register
+              </Button>
           </Form>
        </div>
     </div>
