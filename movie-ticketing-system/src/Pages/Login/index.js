@@ -1,8 +1,8 @@
 import React from "react";
 import "../../Stylesheets/Login.css";
 
-import password_icon from "../../Assets/password.png";
-import username_icon from "../../Assets/username.png";
+// import password_icon from "../../Assets/password.png";
+// import username_icon from "../../Assets/username.png";
 
 const Login = () => {
   return (
@@ -13,17 +13,18 @@ const Login = () => {
       </div>
       <div className="inputs">
         <div className="input">
-          <img src="" alt="" />
-          <input type="text" />
+          <img src=" " alt="" />
+          <input placeholder="Username" type="username" />
         </div>
         <div className="input">
-          <img src={username_icon} alt="" />
-          <input type="username" />
+          <img src=" " alt="" />
+          <input placeholder="Password" type="password" />
         </div>
-        <div className="input">
-          <img src={password_icon} alt="" />
-          <input type="password" />
-        </div>
+      </div>
+      <div className="submit.container">
+        <div className="submit">
+           <button>Login</button>
+            </div>
       </div>
     </div>
   );
