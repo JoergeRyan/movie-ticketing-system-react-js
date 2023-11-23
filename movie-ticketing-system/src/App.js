@@ -1,4 +1,4 @@
-import Menu from "./Menu";
+import Menu from "./Pages/Menu";
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from "./Pages/Login"
@@ -12,7 +12,6 @@ function App() {
 
             
             <Route path="menu" element={<Login/>}></Route>
-            
         </Routes>
       </BrowserRouter>
     </div>
