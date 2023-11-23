@@ -41,6 +41,9 @@ function Register() {
                   <input placeholder= "Confirm Password" type="password"></input>
               </Form.Item>
               <Button type="primary" htmlType='submit' title='REGISTER'>
+                Cancel
+              </Button>
+              <Button type="primary" htmlType='submit' title='CANCEL'>
                 Register
               </Button>
           </Form>
