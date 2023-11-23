@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Form} from 'antd';
-import './index.css';
+import '../../Stylesheets/Register.css';
 
 function Register() {
   return (
@@ -40,7 +40,7 @@ function Register() {
               >
                   <input placeholder= "Confirm Password" type="password"></input>
               </Form.Item>
-              <Button  type="primary" htmlType='submit' title='REGISTER'>
+              <Button type="primary" htmlType='submit' title='REGISTER'>
                 Register
               </Button>
           </Form>
