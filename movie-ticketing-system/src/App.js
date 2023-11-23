@@ -1,8 +1,8 @@
-import Menu from "./Pages/Menu";
+
 import React from 'react'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from "./Pages/Login"
-
+import Menu from "./Pages/Menu";
 function App() {
   return (
     <div className="App">
