@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Form, Input} from 'antd';
 import '../../Stylesheets/Register.css';
 import * as Icons from "@ant-design/icons";
-
+   
 function Register() {
   return (
     <div id='registerBody' className="container">
