@@ -1,0 +1,22 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#dateListSceduleContainer{
+    margin-top: 2%;
+    border: solid;
+    height: 70vh;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#movieSchedule{
+    margin-bottom: 10%;
+}
