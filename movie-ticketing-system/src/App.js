@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Login from "./Pages/Login"
 import Register from "./Pages/Register";
 import Menu from "./Pages/Menu";
-import Reserve from './Pages/Reserve';
+import Datelist from './Pages/Datelist';
 function App() {
   return (
     
@@ -39,7 +39,7 @@ function App() {
 
 
 
-            <Route path="reserve" element={<Reserve/>}></Route>
+            <Route path="datelist" element={<Datelist/>}></Route>
 
 
 

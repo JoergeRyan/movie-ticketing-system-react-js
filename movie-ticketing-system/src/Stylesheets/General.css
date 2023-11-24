@@ -1,4 +1,4 @@
-#menuBodyContainer,#menuBodyCss,#reserveBodyCss,#reserveContainer{
+#menuBodyContainer,#menuBodyCss,#dateListContainer{
     flex-wrap: wrap;
     text-align: center;
     display: flex;
