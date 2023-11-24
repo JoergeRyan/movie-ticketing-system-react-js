@@ -1,0 +1,15 @@
+
+
+#menuBodyCss{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 30%;
+    border: solid;
+    height: 50vh;
+}
+
+#buttonReserve,#buttonCancel,#buttonLogOut{
+   margin: 8%;
+   height: 10%;
+   width:  80%;
+}
