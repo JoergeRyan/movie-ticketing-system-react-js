@@ -1,20 +1,21 @@
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react'
 import { Button, Form } from 'antd';
 import "../../Stylesheets/Datelist.css"
 import "../../Stylesheets/General.css";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import movieData,{setfilterMoviesByDate} from '../../DataHandler';
+import DataHandler,{ dataHandler} from '../../DataHandler';
+
 
 
 function Datelist() {
     const [selectedDate, setSelectedDate] = useState(new Date());
-
-
+    const navigate = useNavigate(); 
     // Check if the selected date is in the filteredMovieData
     const isDateInData = (date) => {
         // Check if selectedDate is not null and date is truthy
-        return selectedDate && date && movieData.some(movie => (new Date(movie.Date)).toDateString() === date.toDateString());
+        return selectedDate && date && dataHandler.getMovieData().some(movie => (new Date(movie.Date)).toDateString() === date.toDateString());
     };
 
 
@@ -47,9 +48,11 @@ function Datelist() {
 
     
     function handleClickSelectDay() {
-        console.log(selectedDate);
         if(isDateInData(selectedDate)){
-           setfilterMoviesByDate(selectedDate);
+            dataHandler.setfilterMoviesByDate(selectedDate);
+            console.log(dataHandler.getfilterMoviesByDate());
+        
+            navigate('/cinemalist');
         } 
     };
     return (

@@ -1,6 +1,8 @@
 #cinemaListContainer {
     border: solid;
     margin-top: 10px !important;
+    width: 100%;
+    height: 95vh;
 }
 
 #buttonCList {
@@ -8,10 +10,27 @@
     font-size: 15px;
     background: #4c00b4;
     margin: 10px !important;
+    width: 20vh !important;
+    height: 5vh !important;
 }
 
 #buttonContainer,#listContainer{
     border: solid;
     margin: 5px;
+    
 }
 
+#imageContainer {
+    width: 50%;
+    height: 50%;
+    padding: 10px;
+    border: solid;
+    margin: 1vh;
+}
+#listContainer{
+    display: flex;
+    overflow: auto;
+}
+#movieDiscription {
+    width: 10%;
+}
