@@ -1,0 +1,22 @@
+.Cancel {
+  padding: 20px;
+  background-color: #f0f0f0; /* Light gray background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+  width: 40vw;
+  height: 40vh;
+}
+
+.list-item {
+  display: flex !important;
+  padding: 10px !important;
+  height: 10vh;
+}
+
+.list-item button {
+  margin-left: 20px;
+  margin-top: 0 !important;
+  color: white;
+  width: 6.1rem;
+  height: 2.6rem;
+}

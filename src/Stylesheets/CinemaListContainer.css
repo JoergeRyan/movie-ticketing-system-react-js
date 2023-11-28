@@ -1,0 +1,17 @@
+#cinemaListContainer {
+    border: solid;
+    margin-top: 10px !important;
+}
+
+#buttonCList {
+    margin-top: 0% !important;
+    font-size: 15px;
+    background: #4c00b4;
+    margin: 10px !important;
+}
+
+#buttonContainer,#listContainer{
+    border: solid;
+    margin: 5px;
+}
+
