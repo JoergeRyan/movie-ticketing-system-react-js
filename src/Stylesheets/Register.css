@@ -1,0 +1,71 @@
+#registerBody{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 10px;
+    background: #fff;
+    padding-bottom: 30px;
+    width: 50vh;
+    height:68vh;
+    border-radius: 30px;
+}
+
+.underline{
+  margin-top:10px;
+}
+
+  .card {
+    color: rgb(99, 14, 99);
+    font-size: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+.inputs{
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+  
+}
+
+.input{
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 75%; 
+  height: 50px;
+  border-radius: 6px;
+  
+}
+.name{
+  width:57%;
+  height:30px;
+}
+.email{
+  width:57%;
+  height:30px;
+}
+.password{
+  width:57%;
+  height:30px;
+}
+.confirm{
+  width:57%;
+  height:30px;
+}
+
+.ant-btn{
+  margin-top: 10%;
+  font-size: 15px;
+  background:#4c00b4;
+}
+
+.ant-btn + .ant-btn {
+  background:#4c00b4;
+  margin-left: 40px;
+}
