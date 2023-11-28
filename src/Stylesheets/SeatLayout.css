@@ -1,0 +1,61 @@
+
+.seat-layout-container{
+    border:none;
+    background-color: white;
+    display:flex; 
+    flex-direction: column;
+    background: #fff;
+    width: 100vh;
+    height:85vh;
+    /* border-radius: 30px; */
+    
+}
+h1{
+    text-align:center;
+}
+.description{
+    margin-top: 5%;
+}
+
+.button{
+    margin-top: 10%;
+    margin-left:39%;
+    width:20vh;
+    display:flex;
+}
+.legend{
+    display: flex;
+    flex-direction:row;
+    margin-top: 10vh;
+}
+.display{
+    display:flex;
+    flex-direction: row;
+}
+
+
+.seat-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Adjust based on your requirement */
+    gap: 20px; /* Adjust the gap between seats */
+    margin-left:30%;
+    margin-top:2%;
+    
+  }
+  
+  .seat {
+    border: 1px solid #ccc;
+    height: 30px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:30%;
+    
+  }
+  
+  .seat:hover {
+    background-color: lightgray; /* Change the color when hovering over a seat */
+  }
+  
+
