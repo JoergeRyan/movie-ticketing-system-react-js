@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import { Button, Form } from 'antd';
 import "../../Stylesheets/Datelist.css"
 import "../../Stylesheets/General.css";
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
 import'../../Stylesheets/CinemaListContainer.css';
 import movieData,{getfilterMoviesByDate} from '../../DataHandler';
 function CenimaList() {

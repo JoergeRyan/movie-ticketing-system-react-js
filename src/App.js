@@ -25,10 +25,6 @@ function App() {
             <Route path="datelist" element={<Datelist/>}></Route>
             <Route path="cinemalist" element={<CenimaList/>}></Route>
             <Route path="seatlayout" element={<SeatLayout/>}></Route>
-            
-
-
-
 
         </Routes>
       </BrowserRouter>

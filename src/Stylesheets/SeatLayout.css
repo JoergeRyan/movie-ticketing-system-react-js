@@ -11,10 +11,12 @@
     
 }
 h1{
+    margin-top:5%;
     text-align:center;
 }
 .description{
     margin-top: 5%;
+    margin-left:5%;
 }
 
 .button{
@@ -22,6 +24,7 @@ h1{
     margin-left:39%;
     width:20vh;
     display:flex;
+    cursor:pointer;
 }
 .legend{
     display: flex;
@@ -55,7 +58,13 @@ h1{
   }
   
   .seat:hover {
-    background-color: lightgray; /* Change the color when hovering over a seat */
+    background-color: lightgray;
+    cursor:pointer;
+  }
+
+  .seat.selected {
+    background-color: green; /* Change to your desired color */
+    color: white; /* Change text color for better visibility */
   }
   
 
