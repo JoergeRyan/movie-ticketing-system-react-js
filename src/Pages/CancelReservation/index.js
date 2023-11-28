@@ -64,22 +64,13 @@ const CancelReservation = () => {
 
   const handleModalConfirm = () => {
     // Implement logic to cancel the selected ticket
-    // Assuming cancelTicketApiCall is your actual API call function
-    cancelTicketApiCall(selectedTicket)
-      .then(() => {
-        const updatedTickets = ticketData.filter(
-          (ticket) => ticket.ticketNumber !== selectedTicket.ticketNumber
-        );
+    const updatedTickets = ticketData.filter(
+      (ticket) => ticket.ticketNumber !== selectedTicket.ticketNumber
+    );
 
-        setTicketData(updatedTickets);
-        setSelectedTicket(null);
-        setIsModalVisible(false);
-      })
-      .catch((error) => {
-        console.error('Error canceling ticket:', error);
-        setSelectedTicket(null);
-        setIsModalVisible(false);
-      });
+    setTicketData(updatedTickets);
+    setSelectedTicket(null);
+    setIsModalVisible(false);
   };
 
   return (
@@ -87,9 +78,10 @@ const CancelReservation = () => {
       <SearchBar onSearch={handleSearch} />
       <TicketList data={ticketData} handleCancelTicket={handleCancelTicket} />
       <TicketModal
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={handleModalCancel}
         onConfirm={handleModalConfirm}
+        selectedTicket={selectedTicket}
       />
     </div>
   );
