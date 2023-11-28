@@ -4,10 +4,11 @@
   margin: auto;
   margin-top: 50px;
   background: #fff;
-  padding-bottom: 30px;
+  padding-bottom: 30px ;
   width: 50vh;
-  height:50vh;
+  height:48vh;
   border-radius: 30px;
+ 
 }
 
 .header {
@@ -21,7 +22,7 @@
 
 .text {
   color: rgb(99, 14, 99);
-  font-size: 48px;
+  font-size: 45px;
   font-weight: 700;
   font-family: sans-serif;
 }
@@ -31,14 +32,17 @@
   height: 6px;
   background: #3c009d;
   border-radius: 9px;
+  
 }
 
 .inputs {
-  margin-top: 55px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 25px;
   text-align: center;
+  padding-top:15px;
+  
 }
 
 .input {
@@ -69,8 +73,17 @@
 .user-icon{
   color: rgb(99, 14, 99);
   margin-left: 2%;
+}
 
 
+.username{
+  width:63.5%;
+  height:30px;
+}
+
+.pass{
+  width:63.5%;
+  height:30px;
 }
 
 .submit-container {
@@ -78,7 +91,9 @@
   gap: 30px;
   margin: 60px auto;
   align-items: center;
-  /* color: black; */
+  margin-left:72px;
+  margin-top: 10px;
+  
 }
 .submit {
   display: flex;
@@ -93,9 +108,12 @@
   font-weight: 650;
   cursor: pointer;
   font-family: sans-serif;
+  
 }
+
 
 .gray {
   background: #eaeaea;
   color: #676767;
+ 
 }

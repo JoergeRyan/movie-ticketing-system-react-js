@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Input} from "antd";
+import { Button, Input,Form} from "antd";
 import "../../Stylesheets/Login.css";
 import * as Icons from "@ant-design/icons";
 
@@ -11,18 +11,38 @@ const Login = () => {
         <div className="text">Login</div>
         <div className="underline"></div>
       </div>
+      <Form>
       <div className="inputs">
         <div className="input">
+        <Form.Item
+                  label = ""
+                  name = "username"
+                  rules = {[{required:true, message:" "}]}  
+              >
+                <div className="username">
                 <Input
                   placeholder= "Username" 
-                  prefix={<Icons.KeyOutlined/>}
+                  prefix={<Icons.UserOutlined />}
                   type="text"
                   />
                   </div>
+                  </Form.Item>
+                  </div>
         <div className="input">
-          <div className="password-icon"><Icons.KeyOutlined /></div>
-          <input placeholder="Password" type="password" />
+        <Form.Item
+            label = ""
+            name = "password"
+            rules = {[{required:true, message:" "}]}  
+      >
+        <div className ="pass">
+          <Input
+            placeholder="Password"
+            prefix={<Icons.KeyOutlined/>}
+            type="password"
+            />
         </div>
+        </Form.Item>
+      </div>
       </div>
 
       <div className="submit-container">
@@ -32,7 +52,9 @@ const Login = () => {
         <Button type="primary" htmlType="submit" title="LOGIN">
           Login
         </Button>
+       
       </div>
+      </Form>
     </div>
   );
 };
