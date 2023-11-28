@@ -1,26 +1,20 @@
-// import React from 'react';
-// import { Table, Button } from 'antd';
+import React from 'react';
+import { List, Button } from 'antd';
 
-// const columns = [
-//   {
-//     title: 'Ticket Number',
-//     dataIndex: 'ticketNumber',
-//     key: 'ticketNumber',
-//   },
-//   // Add more columns as needed
-//   {
-//     title: 'Actions',
-//     key: 'actions',
-//     render: (text, record) => (
-//       <Button type="danger" onClick={() => handleCancelTicket(record)}>
-//         Cancel Ticket
-//       </Button>
-//     ),
-//   },
-// ];
-
-// const TicketList = ({ data }) => {
-//   return <Table dataSource={data} columns={columns} />;
-// };
+const TicketList = ({ data, handleCancelTicket }) => {
+  return (
+    <List
+      dataSource={data}
+      renderItem={(item) => (
+        <List.Item className="list-item">
+          {item.ticketNumber} - {item.description} - {item.status}
+          <Button type="primary" onClick={() => handleCancelTicket(item)}>
+            Cancel 
+          </Button>
+        </List.Item>
+      )}
+    />
+  );
+};
 
 // export default TicketList;

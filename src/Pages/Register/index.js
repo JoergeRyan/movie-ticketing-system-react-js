@@ -69,7 +69,7 @@ function Register() {
               >
                   <div className="confirm">
                   <Input
-                  placeholder= "confirm" 
+                  placeholder= "Confirm Password" 
                   prefix={<Icons.KeyOutlined/>}
                   type="password"
                   />
@@ -77,12 +77,15 @@ function Register() {
               </Form.Item>
               </div>
               </div>
+              
+              <div className="buttons">
               <Button type="primary" htmlType='submit' title='REGISTER'>
               Register
               </Button>
               <Button type="primary" htmlType='submit' title='CANCEL'>
               Login
               </Button>
+              </div>
           </Form>
        </div>
     </div>
