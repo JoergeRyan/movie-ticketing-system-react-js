@@ -14,9 +14,10 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 
 
 #movieSchedule{
-    margin-bottom: 10%;
+    margin-bottom: 20%;
 }
