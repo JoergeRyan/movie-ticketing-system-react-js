@@ -6,6 +6,7 @@ import Register from "./Pages/Register";
 import Menu from "./Pages/Menu";
 import Datelist from './Pages/Datelist';
 import CancelReservation from './Pages/CancelReservation';
+import CenimaList from './Pages/CinemaList';
 function App() {
   return (
     
@@ -19,6 +20,7 @@ function App() {
             <Route path="login" element={<Login/>}></Route>
             <Route path="register" element={<Register/>}></Route>
             <Route path="datelist" element={<Datelist/>}></Route>
+            <Route path="cinemalist" element={<CenimaList/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
