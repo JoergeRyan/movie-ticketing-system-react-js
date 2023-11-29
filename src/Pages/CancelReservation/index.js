@@ -9,17 +9,17 @@ import '../../Stylesheets/CancelReservation.css';
 const initialTicketData = [
   {
     ticketNumber: 'T12354',
-    description: 'Issue with login functionality',
+    description: 'Transformers',
     status: 'Open',
   },
   {
     ticketNumber: 'T12456',
-    description: 'Error in payment processing',
+    description: 'Shaolin Soccer',
     status: 'In Progress',
   },
   {
     ticketNumber: 'T12367',
-    description: 'UI design improvements',
+    description: 'Toy Story',
     status: 'Closed',
   },
   // Add more ticket objects as needed
