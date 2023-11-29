@@ -6,7 +6,10 @@ import '../Assets/temporary-image.png'
 import tempImage from '../Assets/temporary-image.png'
 function CinemaList() {
     const schedule = dataHandler.getfilterMoviesByDate();
-    
+
+    const movies = movieData.filter(movie => movie.Movie.toLowerCase().includes('o'));
+
+
     console.log(schedule);
     return (
 
@@ -19,10 +22,11 @@ function CinemaList() {
                     <Button id="buttonCList">Cenima 4</Button>
                     <Button id="buttonCList">Cenima 5</Button>
                 </div>
+
                 {schedule.map((movie, index) => (
 
                     
-                    <div id="listContainer">
+                    <div id="listContainer" key={index}>
                         <div>
                             <img id="imageContainer" src={tempImage} />
                             <h1 id="cenimaTitle">{movie.Movie}</h1>
@@ -34,7 +38,6 @@ function CinemaList() {
                                     Line 4:12:   'DataHandler' is defined but never used                                                                    no-unused-vars
                                     Line 4:27:   'dataHandler' is defined but never used                                                                    no-unused-vars
                                     Line 23:25:  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text</p>
-
                             </div>
 
                             <div id="cenimaTimeSchedule">
@@ -57,6 +60,8 @@ function CinemaList() {
                         </div>
 
                     </div>
+
+
                 ))}
 
 

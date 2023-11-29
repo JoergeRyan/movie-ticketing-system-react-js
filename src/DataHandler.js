@@ -107,7 +107,7 @@
     return this.movieData;  
   }
 }
-
+let dataHandler = new DataHandler();
 
 export default DataHandler;
 export { dataHandler };
