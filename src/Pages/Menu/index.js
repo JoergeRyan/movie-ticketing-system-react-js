@@ -6,6 +6,7 @@ import "../../Stylesheets/General.css"
 function Menu() {
     return (
         <div id="menuBodyContainer">
+
             <div id="menuBodyCss" >
                 <div className='card p-3 w-400'>
                     <h1>
@@ -21,6 +22,9 @@ function Menu() {
                     </Form>
                 </div>
             </div>
+    
+
+
         </div>
 
     );

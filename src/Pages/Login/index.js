@@ -6,8 +6,8 @@ import * as Icons from "@ant-design/icons";
 const Login = () => {
 
   return (
-    <div className="container">
-      <div className="header">
+    <div className="login-container">
+      <div className="login-header">
         <div className="text">Login</div>
         <div className="underline"></div>
       </div>

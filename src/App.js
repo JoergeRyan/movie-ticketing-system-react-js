@@ -9,6 +9,7 @@ import CancelReservation from './Pages/CancelReservation';
 import CenimaList from './Pages/CinemaList';
 // import Datelist from './Pages/Datelist';
 import SeatLayout from './Pages/SeatLayout';
+import Home from "./Pages/Home";
 
 function App() {
   return (
@@ -16,15 +17,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+            <Route path="home" element={<Home/>}></Route>
             <Route path="menu" element={<Menu/>}></Route>
-
             <Route path="cancelreservation" element={<CancelReservation/>}></Route>
-
             <Route path="login" element={<Login/>}></Route>
             <Route path="register" element={<Register/>}></Route>
             <Route path="datelist" element={<Datelist/>}></Route>
             <Route path="cinemalist" element={<CenimaList/>}></Route>
             <Route path="seatlayout" element={<SeatLayout/>}></Route>
+            
 
         </Routes>
       </BrowserRouter>
