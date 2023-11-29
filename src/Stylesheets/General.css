@@ -5,12 +5,13 @@
 } */
 
 body {
+  background-color: rgb(99, 14, 99);
     /* margin: 0;
     display: flex;
     justify-content: center; 
     align-items: center; 
     min-height: 100vh; */
-    background-color: rgb(99, 14, 99);
+   
     /* background-size: cover;
     background-position: center; */
 }

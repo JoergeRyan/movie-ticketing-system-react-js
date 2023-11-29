@@ -47,7 +47,7 @@ const Login = () => {
 
       <div className="submit-container">
         <Button type="primary" htmlType="submit" title="CANCEL">
-          Cancel
+          Register
         </Button>
         <Button type="primary" htmlType="submit" title="LOGIN">
           Login
