@@ -6,6 +6,7 @@ import '../Assets/temporary-image.png'
 import tempImage from '../Assets/temporary-image.png'
 function CinemaList() {
     const schedule = dataHandler.getfilterMoviesByDate();
+    
     console.log(schedule);
     return (
 
@@ -24,7 +25,7 @@ function CinemaList() {
                     <div id="listContainer">
                         <div>
                             <img id="imageContainer" src={tempImage} />
-                            <h1 id="cenimaTitle">temporary tile</h1>
+                            <h1 id="cenimaTitle">{movie.Movie}</h1>
                         </div>
 
                         <div id="movieDiscriptionContainer">
