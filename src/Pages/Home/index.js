@@ -6,16 +6,22 @@ import "../../Stylesheets/Home.css";
 function Home() {
   return (
     <div className="home-container">
+        <div className="navigation">
       <nav>
+        <input type="checkbox" id="check"/>
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+          </label>
+          
         <label class="logo">Yamadasan's</label>
         <ul>
-          <li><a href="#">Home</a></li>
+          <li><a class="active" href="#">Home</a></li>
           <li><a href="#">Reserve</a></li>
-          <li><a href="#">Cancel</a></li>
-          <li><a href="#">Register</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="#">Cancel Reservation</a></li>
         </ul>
       </nav>
+      <section></section>
+      </div>
     </div>
   );
 }
