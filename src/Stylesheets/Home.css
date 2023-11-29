@@ -83,7 +83,7 @@ a.active,a:hover{
     }
 }
 section{
-    background: url("/src/Assets/background.png") no-repeat;
+    background: url("/src/Pages/Assets/background.png") no-repeat;
     background-size: cover;
     height:calc(100vh - 80px);
 
