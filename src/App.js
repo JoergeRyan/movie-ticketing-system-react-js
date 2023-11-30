@@ -10,6 +10,7 @@ import CenimaList from './Pages/CinemaList';
 // import Datelist from './Pages/Datelist';
 import SeatLayout from './Pages/SeatLayout';
 import ImageComponent from "./Pages/Home";
+import Landing from "./Pages/Landing";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+            <Route path="landing" element={<Landing/>}></Route>
             <Route path="home" element={<ImageComponent/>}></Route>
             <Route path="menu" element={<Menu/>}></Route>
             <Route path="cancelreservation" element={<CancelReservation/>}></Route>

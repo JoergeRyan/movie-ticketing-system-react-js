@@ -18,12 +18,12 @@ const ImageComponent = () => {
       image: inceptionImage,
       title: "Inception",
       alt: "Inception",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster.
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster"
     },
     {
       image: intersellarImage,
       alt: "Intersellar",
-      description: "",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
     },
     {
       image: dunkirkImage,
@@ -36,8 +36,8 @@ const ImageComponent = () => {
       description: "",
     },
     {
-      image: mementoImage,
-      alt: "Memento",
+      image: moanaImage,
+      alt: "Moana",
       description: "",
     },
   ];
@@ -83,7 +83,7 @@ const ImageComponent = () => {
                   className="toggle-button"
                   onClick={() => toggleDescription(index)}
                 >
-                  Show Description
+                  Description
                 </button>
                 {showDescriptions[index] && (
                   <p className="movie-description">{movie.description}</p>
