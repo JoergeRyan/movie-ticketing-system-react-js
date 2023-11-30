@@ -60,17 +60,9 @@ const ImageComponent = () => {
 
           <label class="logo">Yamadasan's</label>
           <ul>
-            <li>
-              <a class="active" href="#">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#">Reserve</a>
-            </li>
-            <li>
-              <a href="#">Cancel Reservation</a>
-            </li>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">Reserve</a></li>
+            <li><a href="#">Cancel Reservation</a></li>
           </ul>
         </nav>
 

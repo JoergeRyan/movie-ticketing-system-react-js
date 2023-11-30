@@ -6,6 +6,17 @@ function SeatLayout() {
   const rows = 5;
   const columns = 8;
 
+  // const[seniorsCount, setSeniorsCount] =useState(0);
+
+  // const incrementSeniorsCount = () =>{
+  //   setSeniorsCount(seniorsCount +1);
+  // };
+
+  // const decrementSeniorsCount = () =>{
+  //   if(seniorsCount >0){
+  //     setSeniorsCount(seniorsCount-1);
+  //   }
+  // };
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -74,7 +85,8 @@ function SeatLayout() {
 
   return (
     <div className="seat-layout-container">
-      <h1>Screen</h1>
+      <h1 id="screen-title">Screen</h1>
+      <div className="seat-layout">
       <div className="display">
         <div className="description">
           <ul>Cinema</ul>
@@ -82,15 +94,20 @@ function SeatLayout() {
           <ul>Time</ul>
           <ul>Premiere</ul>
           <ul>Seniors</ul>
+          {/* <div className="seniors-counter">
+            <button onclick={incrementSeniorsCount}>+</button>
+            <span>{seniorsCount}</span>
+            <button onClick={decrementSeniorsCount}>-</button>
+          </div> */}
           <ul>Seats</ul>
           <ul>Total</ul>
         </div>
         <div className="seat-grid">{renderSeats()}</div>
       </div>
-      <div className="legend">
+      {/* <div className="legend">
         <ul>Available Seats</ul>
         <ul></ul>
-      </div>
+      </div> */}
       <div className="button">
         <Button type="primary" htmlType="submit" title="LOGIN">
           Exit
@@ -98,6 +115,7 @@ function SeatLayout() {
         <Button type="primary" htmlType="submit" title="LOGIN" onClick={handleReserveClick}>
           Reserve
         </Button>
+      </div>
       </div>
       <Modal
       title="Confirm Reservation"
