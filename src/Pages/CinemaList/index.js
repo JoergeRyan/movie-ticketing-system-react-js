@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button, Form } from 'antd';
 import '../../Stylesheets/CinemaListContainer.css';
 import DataHandler, { dataHandler } from '../../DataHandler';
-import '../Assets/temporary-image.png'
-import tempImage from '../Assets/temporary-image.png'
+import tempImage from '../../Assets/temporary-image.png'
 function CinemaList() {
     const [displayMovie, setDisplayMovie] = useState(1);
     const navigate = useNavigate(); 
