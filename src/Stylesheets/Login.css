@@ -24,7 +24,7 @@
 }
 
 .text {
-  color: rgb(99, 14, 99);
+  color: black;
   font-size: 45px;
   font-weight: 700;
   font-family: sans-serif;
@@ -33,7 +33,7 @@
 .underline {
   width: 61px;
   height: 6px;
-  background: #3c009d;
+  background: red;
   border-radius: 9px;
   
 }
