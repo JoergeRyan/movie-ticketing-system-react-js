@@ -63,10 +63,10 @@
 .ant-btn{
   margin-top: 10%;
   font-size: 15px;
-  background:#4c00b4;
+  background:red;
 }
 
 .ant-btn + .ant-btn {
-  background:#4c00b4;
+  background:red;
   margin-left: 40px;
 }

@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Pixelify+Sans&display=swap");
+
+
 .navigation {
   padding: 0;
   margin: 0;
@@ -26,7 +28,7 @@ nav ul li {
 }
 a.active,
 a:hover {
-  background: #1b9bff;
+  background: red;
   transition: 0.5s;
 }
 .checkbtn {
@@ -83,7 +85,7 @@ a:hover {
   }
 }
 section {
-  background-color: white;
+  background-color: gray;
   background-size: cover;
   height: calc(100vh - 80px);
 }
@@ -94,12 +96,12 @@ section {
 }
 
 nav {
-  background: #c04280;
+  background: black;
   height: 80px;
   width: 100%;
 }
 label.logo {
-  color: white;
+  color: red;
   font-size: 35px;
   line-height: 80px;
   padding: 0 100px;
@@ -116,6 +118,7 @@ label.logo {
   padding-right:60px;
   background-color: white;
  
+ 
 }
 /* .image {
   width: 200px;
@@ -129,12 +132,15 @@ label.logo {
     margin-bottom:20px;
     position:relative;
     display:inline-block;
+    text-align:center;
+    box-shadow: 5px 5px 5px gray;
 }
 
 .description-button{
     position:absolute;
     bottom:5px;
-    right:5px;
+    right:50%;
+    transform: translateX(50%);
 }
 .movie-item img{
     width:100%;
@@ -218,7 +224,7 @@ section {
 }
 
 nav {
-  background: #c04280;
+  background: black;
   height: 80px;
   width: 100%;
 }

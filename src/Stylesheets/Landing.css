@@ -1,53 +1,31 @@
 
 
-.landing-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color:#240049; 
-    font-family: Arial, sans-serif;
+.title-content {
+    width:100%;
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    text-align:center;
+    color:#fff;
   }
-  .landing-span{
-    background: linear-gradient(45deg, #c11ceb, #6f19b5, #25007a);
-    width: 75%;
-    height:75%;
-    opacity:0.5;
 
-  }
+.title-content h1{
+    font-size:70px;
+    margin-top:80px;
+}
+.title-content p{
+    margin:20px auto;
+    font-weight:100;
+    line-height: 25px;
+
+}
   #header {
     font-size: 3rem;
     margin-bottom: 30px;
     color: #333; 
   }
   
-  button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  #register{
-    background-color:red;
-  }
 
-  #register:hover{
-    background-color:white;
-  }
-  #login{
-    background-color:gray;
-
-  }
-
-  #login:hover{
-    background-color:white;
-
-  }
 
   
  
