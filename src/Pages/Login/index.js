@@ -5,18 +5,18 @@ import * as Icons from "@ant-design/icons";
 
 const Login = () => {
   const onFinish = async (values) => {
-    try {
-      const response = await LoginUser(values);
-      if (response.success) {
-        message.success(response.message);
-        localStorage.setItem("token", response.data);
-        window.location.href = "/"; // Redirect to the homepage
-      } else {
-        message.error(response.message);
-      }
-    } catch (error) {
-      message.error(error.message);
-    }
+    // try {
+    //   const response = await LoginUser(values);
+    //   if (response.success) {
+    //     message.success(response.message);
+    //     localStorage.setItem("token", response.data);
+    //     window.location.href = "/"; // Redirect to the homepage
+    //   } else {
+    //     message.error(response.message);
+    //   }
+    // } catch (error) {
+    //   message.error(error.message);
+    // }
   };
 
   return (

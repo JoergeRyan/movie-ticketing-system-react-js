@@ -1,14 +1,19 @@
-// const {axiosInstance } = require("");
+import { async } from "q";
+
+const {axiosInstance } = require("axios");
 
 // //Register new user
-// export const RegisterUser = async(payload) => {
-//   try {
-//     const response = await axiosInstance.post("/api/users/register",payload);
-//     return response.data;
-//   } catch(error) {
-//      return error.response;
-//   }
-// };
+ function RegisterUser(payload){
+    const register = async() => {
+        try {
+            const response = await axiosInstance.post("http://localhost:5000/api/users/register",payload);
+            return response.data;
+          } catch(error) {
+             return error.response;
+          }
+    }
+  register();
+};
 
 // //Login a user
 
@@ -30,3 +35,5 @@
 //       return error;
 //   }
 // }
+
+export default RegisterUser;

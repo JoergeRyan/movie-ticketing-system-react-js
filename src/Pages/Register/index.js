@@ -1,39 +1,51 @@
 import React from 'react'
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input,message } from 'antd';
 import '../../Stylesheets/Register.css';
 import * as Icons from "@ant-design/icons";
-import {RegisterUser} from "../apiCall/registerUserApi";   
+import RegisterUser from "../apiCall/registerUserApi";   
 
 function Register() {
 
-  const onFinish = async (values) => {
-    // try {
-    //   const response = await RegisterUser(values);
-    //   if (response.success) {
-    //     message.success(response.message);
-    //   } else {
-    //     message.error(response.message);
-    //   }
-    // } catch (error) {
-    //   message.error(error.message);
-    // }
-  };
+  const onFinish =  async(values) => {
+    console.log(values);
+    try{
+      const response = await RegisterUser(values);
+      if(response.success){
+         message.success(response.message);
+      } else {
+          message.error(response.message);
+      }
+    } catch(error){
+        message.error(error.message);
+    }
+    fetch(`/api/users/register`, {
+      method: "POST",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        username: values.name,
+        email: values.email,
+        password: values.password
+      })
+    })
+      .then(res => res.json())
+      .then(regis => {
+        if (regis?.success) {
+          console.log(regis.success);
+        } else {
+          console.error('The object or property is undefined.');
+        }
+      })
+      .catch(error => {
+        console.error('Fetch Error:', error);
+      });
+    
+  }    
 
-  let onClickRegister = () => {
-    console.log("hello");
+  // let onClickRegister = () => {
+  //   console.log("hello");
 
-    // fetch(`http://localhost:5000/register`,{
-    //   headers: {'Content-Type': 'application/json'},
-    //   // body:{
-    //   //   username: "hahah",
-    //   //   email: "agasdf"
-    //   // }
-    // })
-    // .then(res=>res.json)
-    // .then(regis=>{
-    //   console.log(regis);
-    // })
-  }
+    
+  // }
 
   return (
     <div id='registerBody' className="container">
@@ -108,7 +120,7 @@ function Register() {
           </div>
 
           <div className="buttons">
-            <Button type="primary" htmlType='submit' title='REGISTER'>
+            <Button type="primary"  htmlType='submit' title='REGISTER'>
               Register
             </Button>
             <Button type="primary" htmlType='submit' title='CANCEL'>
