@@ -74,6 +74,7 @@ const CancelReservation = () => {
   };
 
   return (
+    <div className="CancelReservationBody">
     <div className="Cancel">
       <SearchBar onSearch={handleSearch} />
       <TicketList data={ticketData} handleCancelTicket={handleCancelTicket} />
@@ -83,6 +84,7 @@ const CancelReservation = () => {
         onConfirm={handleModalConfirm}
         selectedTicket={selectedTicket}
       />
+    </div>
     </div>
   );
 };
