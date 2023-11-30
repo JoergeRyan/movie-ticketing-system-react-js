@@ -63,8 +63,13 @@ h1{
   }
 
   .seat.selected {
-    background-color: green; /* Change to your desired color */
-    color: white; /* Change text color for better visibility */
+    background-color: green;
+    color: white;
+  }
+  
+  .seat.reserved {
+    background-color: red;
+    color: white;
   }
   
 

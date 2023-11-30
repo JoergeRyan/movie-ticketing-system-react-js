@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import "../../Stylesheets/SeatLayout.css";
 
 function SeatLayout() {
   const rows = 5;
   const columns = 8;
 
-
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const convertToAlphanumeric = (rowIndex, colIndex) => {
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -17,17 +17,32 @@ function SeatLayout() {
   };
 
   const handleSeatClick = (seatId) => {
-   
     const seatIndex = selectedSeats.indexOf(seatId);
     if (seatIndex === -1) {
-      
       setSelectedSeats([...selectedSeats, seatId]);
     } else {
-     
       const updatedSelectedSeats = [...selectedSeats];
       updatedSelectedSeats.splice(seatIndex, 1);
       setSelectedSeats(updatedSelectedSeats);
     }
+  };
+
+  const handleReserveClick = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleModalConfirm = () => {
+    
+    setIsModalVisible(false);
+    const updatedSeats = document.querySelectorAll('.seat.selected');
+    updatedSeats.forEach(seat => {
+      seat.classList.add('reserved');
+    });
+
+  };
+
+  const handleModalCancel = () => {
+    setIsModalVisible(false);
   };
 
   const renderSeats = () => {
@@ -75,16 +90,31 @@ function SeatLayout() {
       <div className="legend">
         <ul>Available Seats</ul>
         <ul></ul>
-
       </div>
       <div className="button">
         <Button type="primary" htmlType="submit" title="LOGIN">
           Exit
         </Button>
-        <Button type="primary" htmlType="submit" title="LOGIN">
+        <Button type="primary" htmlType="submit" title="LOGIN" onClick={handleReserveClick}>
           Reserve
         </Button>
       </div>
+      <Modal
+      title="Confirm Reservation"
+      visible={isModalVisible}
+      onOk={handleModalConfirm}
+      onCancel={handleModalCancel}
+      footer={[
+       <Button key="cancel" onClick={handleModalCancel} style={{ color: 'white' }}>
+       Cancel
+       </Button>,
+       <Button key="confirm" type="primary" onClick={handleModalConfirm} style={{color: 'white' }}>
+       Confirm
+       </Button>,
+  ]}
+>
+  <p>Do you want to confirm the reservation?</p>
+</Modal>
     </div>
   );
 }
