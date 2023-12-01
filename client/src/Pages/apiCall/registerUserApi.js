@@ -1,19 +1,18 @@
-import { async } from "q";
+import { axiosInstance } from ".";
 
-const {axiosInstance } = require("axios");
 
 // //Register new user
- function RegisterUser(payload){
-    const register = async() => {
+  export  const register = async() => {
         try {
-            const response = await axiosInstance.post("http://localhost:5000/api/users/register",payload);
+            const response = await axiosInstance.post("api/users/register",payload);
             return response.data;
           } catch(error) {
              return error.response;
           }
     }
-  register();
-};
+
+
+
 
 // //Login a user
 
