@@ -1,4 +1,4 @@
-.register{
+.register {
   height: 100vh;
   overflow-y: hidden;
   display: flex !important;
@@ -6,79 +6,75 @@
   justify-content: center !important;
 }
 
-#registerBody{
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    background: #fff;
-    padding-bottom: 30px;
-    width: 50vh;
-    height:58vh;
-    border-radius: 30px;
+#registerBody {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 100px;
+  background: #fff;
+  padding-bottom: 30px;
+  width: 50vh;
+  height: 68vh;
+  height: 58vh;
+  border-radius: 30px;
 }
-.register-button{
-width: 254px;
-height: 40px;
-margin-top: 23px !important;
-margin-bottom: 10px;
-
+.register-button {
+  width: 254px;
+  height: 40px;
+  margin-top: 23px !important;
+  margin-bottom: 10px;
 }
-.underline{
-  margin-top:10px;
+.underline {
+  margin-top: 10px;
 }
 
-  .card {
-    color: black;
-    font-size: 22px;
-    /* font-weight: 800; */
-    font-family: sans-serif;
-    text-align: center;
-    padding: 20px;
-    border-radius: 8px;
-  }
-
-.inputs{
+.card {
+  color: black;
+  font-size: 22px;
+  /* font-weight: 800; */
+  /* font-weight: 800; */
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+}
+.inputs {
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 25px;
   text-align: center;
-  
 }
-
-.input{
+.input {
   display: flex;
   align-items: center;
   margin: auto;
-  width: 75%; 
+  width: 75%;
   height: 50px;
   border-radius: 6px;
-  
 }
-.name{
-  width:57%;
-  height:30px;
+.name {
+  width: 57%;
+  height: 30px;
 }
-.email{
-  width:57%;
-  height:30px;
+.email {
+  width: 57%;
+  height: 30px;
 }
-.password{
-  width:57%;
-  height:30px;
+.password {
+  width: 57%;
+  height: 30px;
 }
-.confirm{
-  width:57%;
-  height:30px;
+.confirm {
+  width: 57%;
+  height: 30px;
 }
-
-.ant-btn{
+.ant-btn {
   margin-top: 10%;
   font-size: 15px;
-  background:red;
+  background: red;
 }
-
 .ant-btn + .ant-btn {
-  background:red;
+  background: red;
   margin-left: 40px;
 }
