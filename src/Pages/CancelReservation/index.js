@@ -22,6 +22,16 @@ const initialTicketData = [
     description: 'Toy Story',
     status: 'Closed',
   },
+  {
+    ticketNumber: 'T13777',
+    description: 'Toy Story',
+    status: 'Closed',
+  },
+  {
+    ticketNumber: 'T20007',
+    description: 'Toy Story',
+    status: 'Closed',
+  },
   // Add more ticket objects as needed
 ];
 

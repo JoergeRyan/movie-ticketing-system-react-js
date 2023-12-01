@@ -5,8 +5,11 @@ import inceptionImage from "../../Assets/movies/inception.jpg";
 import intersellarImage from "../../Assets/movies/intersellar.jpg";
 import dunkirkImage from "../../Assets/movies/dunkirk.jpg";
 import mementoImage from "../../Assets/movies/memento.jpg";
-
+import barbieImage from "../../Assets/movies/barbie.jpg";
 import moanaImage from "../../Assets/movies/moana.jpg";
+import nunImage from "../../Assets/movies/nun.jpeg";
+import howsImage from "../../Assets/movies/hows.jpg";
+import loveImage from "../../Assets/movies/love.jpg";
 
 
 const ImageComponent = () => {
@@ -28,17 +31,37 @@ const ImageComponent = () => {
     {
       image: dunkirkImage,
       alt: "Dunkirk",
-      description: "",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
     },
     {
       image: mementoImage,
       alt: "Memento",
-      description: "",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
     },
     {
       image: moanaImage,
       alt: "Moana",
-      description: "",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+    },
+    {
+      image: barbieImage,
+      alt: "Barbie",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+    },
+    {
+      image: nunImage,
+      alt: "Nun",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+    },
+    {
+      image: howsImage,
+      alt: "hows",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+    },
+    {
+      image: loveImage,
+      alt: "hows",
+      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
     },
   ];
 
