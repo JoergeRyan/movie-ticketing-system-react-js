@@ -7,7 +7,6 @@ import Menu from "./Pages/Menu";
 import Datelist from './Pages/Datelist';
 import CancelReservation from './Pages/CancelReservation';
 import CenimaList from './Pages/CinemaList';
-// import Datelist from './Pages/Datelist';
 import SeatLayout from './Pages/SeatLayout';
 import ImageComponent from "./Pages/Home";
 import Landing from "./Pages/Landing";
@@ -20,7 +19,6 @@ function App() {
         <Routes>
             <Route path="landing" element={<Landing/>}></Route>
             <Route path="home" element={<ImageComponent/>}></Route>
-            {/* <Route path="menu" element={<Menu/>}></Route> */}
             <Route path="cancelreservation" element={<CancelReservation/>}></Route>
             <Route path="login" element={<Login/>}></Route>
             <Route path="register" element={<Register/>}></Route>

@@ -55,6 +55,10 @@ function Datelist() {
             navigate('/cinemalist');
         } 
     };
+
+    function handleClickBack(){
+        navigate(-1);
+    }
     return (
         <div id="dateListContainer">
             <div id="dateListSceduleContainer">
@@ -70,7 +74,11 @@ function Datelist() {
                         calendarType="US"
                         tileContent={tileContent}
                     />
+                    <div className="buttonClick">
+                     <Button style={{ marginRight: '10px', color: 'white', backgroundColor: 'blue' }} onClick={handleClickBack}>Back</Button>
                     <Button style={{ marginLeft: '75%', color: 'white', backgroundColor: 'red', }} onClick={handleClickSelectDay}>Select</Button>
+                    </div>
+
                 </div>
 
 

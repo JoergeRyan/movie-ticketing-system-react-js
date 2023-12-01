@@ -17,6 +17,7 @@
     margin-top:1%;
     text-align:center;
     font-size: 50px;
+    color:white
 }
 .description{
     border:#ccc;
@@ -72,7 +73,8 @@
     justify-content: center;
     margin-top:30%;
     border-radius:15%;
-    box-shadow: 5px 5px 5px rgb(206, 150, 206);
+    box-shadow: 5px 5px 5px gray;
+    color:white;
     
   }
   

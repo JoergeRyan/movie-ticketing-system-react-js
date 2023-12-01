@@ -1,23 +1,28 @@
-
-
-#dateListContainer{
-    margin-left:35%;
-    margin-top:5%;
+#dateListContainer {
+    margin-left: 35%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
+
 #dateListSceduleContainer {
     margin-top: 0%;
-    border: solid;
+    border: none;
     height: 90vh;
     width: 500px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
-
 
 #movieSchedule {
     margin-bottom: 5%;
     margin-top: 5%;
+    color: white;
+}
+
+.buttonClick {
+    display: flex;
+   margin-right:20%;
+  
 }

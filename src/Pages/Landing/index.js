@@ -7,7 +7,7 @@ function Landing(){
         <div className="landing-page">
             <div className="title-content">
             <h1 id="landing-header">Movie Reservation System</h1>
-            <p>Yamadasan's System</p>
+            
 
             
             <div className="landing-button">
