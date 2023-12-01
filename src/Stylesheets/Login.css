@@ -1,17 +1,23 @@
-
+.login{
+  height: 100vh;
+  overflow-y: hidden;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-direction: column;
+}
 
 .login-container {
   display: flex;
   flex-direction: column;
   margin: auto;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   background: #fff;
   padding-bottom: 30px ;
   width: 50vh;
-  height:48vh;
+  height:50vh;
   border-radius: 30px;
-
-
+  text-align: center;
 }
 
 .login-header {
@@ -45,13 +51,12 @@
   gap: 25px;
   text-align: center;
   padding-top:15px;
-  
 }
 
 .input {
   display: flex;
   align-items: center;
-  margin: auto;
+  /* margin: auto; */
   width: 75%;
   height: 50px;
   background: #eaeaea;
@@ -89,23 +94,21 @@
   height:30px;
 }
 
-.submit-container {
-  display: flex;
-  gap: 30px;
-  margin: 60px auto;
-  align-items: center;
-  margin-left:72px;
-  margin-top: 10px;
-  
+.login-button{
+width: 280px;
+height: 40px;
+margin-top: 23px !important;
+margin-bottom: 10px;
+
 }
 .submit {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
+  width: 400px;
   height: 40px;
   color: #fff;
-  background:#4c00b4;
+
   border-radius: 50px;
   font-size: 15px;
   font-weight: 650;
