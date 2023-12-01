@@ -1,22 +1,21 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios'; // Import axios
 import { Button, Input, Form, message } from "antd";
 import "../../Stylesheets/Login.css";
 import * as Icons from "@ant-design/icons";
-
 const Login = () => {
-  const onFinish = async (values) => {
-    // try {
-    //   const response = await LoginUser(values);
-    //   if (response.success) {
-    //     message.success(response.message);
-    //     localStorage.setItem("token", response.data);
-    //     window.location.href = "/"; // Redirect to the homepage
-    //   } else {
-    //     message.error(response.message);
-    //   }
-    // } catch (error) {
-    //   message.error(error.message);
-    // }
+  const [userData, setUserData] = useState({ username: '', password: '' });
+
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('/api/users/register', userData);
+      console.log(response.data);
+    } catch (error) {
+      console.error(error.response ? error.response.data : error.message);
+    }
   };
 
   return (
@@ -26,7 +25,7 @@ const Login = () => {
         <div className="text">Login</div>
         <div className="underline"></div>
       </div>
-      <Form onFinish={onFinish}>
+      <Form >
         <div className="inputs">
           <div className="input">
             <Form.Item

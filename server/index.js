@@ -21,7 +21,7 @@ const userRoutes = require("./routes/userRoutes");
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static("uploads"));
+// app.use(express.static("uploads"));
 app.use("/api/movies", moviesRoutes);
 app.use("/api/tickets", ticketsRoutes);
 app.use("/api/users", userRoutes);
@@ -29,7 +29,7 @@ app.use("/api/users", userRoutes);
 mongoose.set({ strictQuery: true });
 mongoose
     .connect(
-        "mongodb+srv://Ayannn:Strygwyr7@cluster0.qzo8ec2.mongodb.net/Movies"
+        "mongodb+srv://Hanc81818:WM8XGRMcYMzaitRA@cluster0.azy2r3f.mongodb.net/MovieReservationTicket"
     )
     .then(() => {
         app.listen(
