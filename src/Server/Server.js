@@ -4,27 +4,27 @@ const express = require('express');
 const app = express();
 
 app.use(express.json());
-// const connection = mongoose.connection;
+const connection = mongoose.connection;
 
-// mongoose.connect("mongodb+srv://Hanc81818:WM8XGRMcYMzaitRA@cluster0.azy2r3f.mongodb.net/MovieReservationTicket");
+mongoose.connect("mongodb+srv://Hanc81818:WM8XGRMcYMzaitRA@cluster0.azy2r3f.mongodb.net/MovieReservationTicket");
 
-// connection.on('open', () => {
-//   console.log("Connected successfully");
-// });
+connection.on('open', () => {
+  console.log("Connected successfully");
+});
 
-// connection.on('error', (error) => {
-//   console.log("Error in connection:", error);
-// });
+connection.on('error', (error) => {
+  console.log("Error in connection:", error);
+});
 
-// app.use("/",userRouter); 
+app.use("/",userRouter); 
 
-// const port = process.env.PORT || 5000;
-// app.listen(port, () => console.log(`Nodejs server is running port 5000`));
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log(`Nodejs server is running port 5000`));
 
 
-// //mongodb+srv://Hanc81818:WM8XGRMcYMzaitRA@cluster0.azy2r3f.mongodb.net/
+//mongodb+srv://Hanc81818:WM8XGRMcYMzaitRA@cluster0.azy2r3f.mongodb.net/
 
-// module.exports = {app,mongoose};
+module.exports = {app,mongoose};
 mongoose.set({ strictQuery: true });
 mongoose
     .connect(
