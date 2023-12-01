@@ -1,13 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Input, message } from 'antd';
 import * as Icons from '@ant-design/icons';
 import axios from 'axios';
 
 function Register() {
-  const onFinish = async (values) => {
+  const [userData, setUserData] = useState({
+    username: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleInputChange = (fieldName, value) => {
+    setUserData((prevData) => ({
+      ...prevData,
+      [fieldName]: value,
+    }));
+  };
+
+  const onFinish = async () => {
     try {
       // Make the registration API call using axios
-      const response = await axios.post('http://localhost:5000/api/users/signup', values);
+      const response = await axios.post('http://localhost:5000/api/users/signup', userData);
       console.log(response.data);
 
       // Check the success property in the response
@@ -23,25 +36,68 @@ function Register() {
   };
 
   return (
-    <div id='registerBody' className='container'>
-      <div className='card p-3 w-400'>
-        <h1 className='text-xl mb-2'>
-          Register
-          <center><div className="underline"></div></center>
-        </h1>
-        <Form layout="vertical" onFinish={onFinish}>
-          {/* ... (Your form fields) */}
-
-          <div className="buttons">
-            <Button type="primary" htmlType='submit' title='REGISTER'>
-              Register
-            </Button>
-            <Button type="primary" htmlType='submit' title='CANCEL'>
-              Login
-            </Button>
-          </div>
-        </Form>
+    <div className="login-container">
+      <div className="login-header">
+        <div className="text">Login</div>
+        <div className="underline"></div>
       </div>
+      <Form>
+        <div className="inputs">
+          <div className="input">
+            <Form.Item
+              label=""
+              name="username"
+              rules={[{ required: true, message: 'Please input your username!' }]}
+            >
+              <div className="username">
+                <Input
+                  placeholder="Username"
+                  prefix={<Icons.UserOutlined />}
+                  type="text"
+                  onChange={(e) => handleInputChange('username', e.target.value)}
+                />
+              </div>
+            </Form.Item>
+          </div>
+          <div className="input">
+            <Form.Item
+              label=""
+              name="password"
+              rules={[{ required: true, message: 'Please input your password!' }]}
+            >
+              <div className="pass">
+                <Input
+                  placeholder="Password"
+                  prefix={<Icons.KeyOutlined />}
+                  type="password"
+                  onChange={(e) => handleInputChange('password', e.target.value)}
+                />
+              </div>
+            </Form.Item>
+          </div>
+          <div className="input">
+            <Form.Item
+              label=""
+              name="confirmPassword"
+              rules={[{ required: true, message: 'Please input your password!' }]}
+            >
+              <div className="pass">
+                <Input
+                  placeholder="confirm password"
+                  prefix={<Icons.KeyOutlined />}
+                  type="password"
+                  onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
+                />
+              </div>
+            </Form.Item>
+          </div>
+        </div>
+        <div className="submit-container">
+          <Button onClick={onFinish} type="primary" htmlType="submit" title="LOGIN">
+            Register
+          </Button>
+        </div>
+      </Form>
     </div>
   );
 }

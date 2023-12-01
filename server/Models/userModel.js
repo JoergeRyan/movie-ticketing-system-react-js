@@ -8,7 +8,6 @@ const userSchema = Schema({
     username: {
         type: String,
         required: true,
-        unique: true,
     },
     password: {
         type: String,
@@ -28,7 +27,7 @@ userSchema.statics.signup = async function (data) {
     //     {}
     // );
 
-    console.log(data);
+    // console.log(data);
     const { username, password, confirmPassword } = data;
 
     // Check if all fields has been filled

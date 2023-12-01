@@ -4,6 +4,7 @@ const validator = require("validator");
 
 // User register
 const signupUser = async (req, res) => {
+    console.log(req.body);
     try {
         const user = await User.signup(req.body);
 
