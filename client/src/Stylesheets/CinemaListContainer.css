@@ -5,7 +5,7 @@
   /* display: flex;
     justify-content: center; 
     align-items: center;  */
-  background-color: black;
+  background-color: white;
   /* background-size: cover; */
   background-position: center;
   width: 100%;
@@ -38,13 +38,13 @@
   /* border: black solid 2px; */
   border: none;
   border-radius: 10px;
-  background: white;
+  background: red;
   margin: 10px !important;
   width: 20vh !important;
   height: 5vh !important;
 }
 #buttonCList:hover {
-  background-color: red;
+  background-color: white;
   cursor: pointer;
 }
 /* #buttonContainer,#cinemaDescription, #cinemaTimeSchedule{
@@ -78,8 +78,8 @@
 }
 
 #cinemaTitle {
-  font-size: 5vh;
-  color: white;
+  font-size: 4vh;
+  color: black;
   font-weight: border;
   /* border: solid;
     margin: 1vh; */
@@ -89,14 +89,14 @@
 #cinemaDescription {
   padding: 2vh;
   margin-left: 3vh;
-  font-size: 3vh;
+  font-size: 2vh;
   height: 20%;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   max-height: 200px;
-  font-family: "Source Code Pro", cursive;
-  color: white;
+  font-family: "Nanum Myeongjo", cursive;
+  color: black;
 
   &::-webkit-scrollbar {
     width: 7px; /* width of the scrollbar */
@@ -120,14 +120,26 @@
 .cinemaTimeContainer {
   display: flex;
   border: solid;
+  border-radius: 10px;
   margin: 1vh;
   overflow-y: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black;
 }
 
 .cinemaContents {
   margin: 2vh;
+}
+
+#selectButton {
+  border: none;
+  background-color: red !important;
+  color: black;
+}
+
+#selectButton:hover {
+  background-color: white !important;
+  cursor: pointer;
 }
