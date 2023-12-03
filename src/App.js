@@ -7,7 +7,6 @@ import Menu from "./Pages/Menu";
 import Datelist from './Pages/Datelist';
 import CancelReservation from './Pages/CancelReservation';
 import CenimaList from './Pages/CinemaList';
-// import Datelist from './Pages/Datelist';
 import SeatLayout from './Pages/SeatLayout';
 import ImageComponent from "./Pages/Home";
 import Landing from "./Pages/Landing";
