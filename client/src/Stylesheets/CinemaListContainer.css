@@ -73,6 +73,7 @@
   width: 36rem;
   height: 31.5rem;
   padding: 10px;
+  border-radius: 20px;
   /* border: solid;
     margin: 1vh; */
 }
@@ -88,7 +89,7 @@
 }
 #cinemaDescription {
   padding: 2vh;
-  margin-left: 3vh;
+  /* margin-left: 3vh; */
   font-size: 2vh;
   height: 20%;
   overflow-y: auto;
