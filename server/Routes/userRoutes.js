@@ -1,13 +1,13 @@
 const express = require("express");
-
 const router = express.Router();
 
 const {
-    login,
     signupUser,
+    login,
+    getAllUsers,
+    getUserByEmail,
     getUserProfile,
     deleteUser,
-    getAllUsers,
 } = require("../controllers/userController");
 
 const { verify } = require("../auth");
