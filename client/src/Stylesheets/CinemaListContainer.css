@@ -1,17 +1,28 @@
-#cinemaListBody{
-    margin: 0;
-    display: flex;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Pixelify+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Hedvig+Letters+Serif:opsz@12..24&family=Montserrat:wght@300;600&family=Pixelify+Sans&display=swap");
+
+#cinemaListBody {
+  /* display: flex;
     justify-content: center; 
-    align-items: center; 
-    
-    background-color: rgb(181, 134, 134);
-    background-size: cover;
-    background-position: center;
-    width:100%;
-    height:100vh;
+    align-items: center;  */
+  background-color: white;
+  /* background-size: cover; */
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+}
+#cinema {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bolder;
+  color: white;
+  background-color: black;
+  padding: 1%;
+  width: 100vw;
+  font-family: "Montserrat", sans-serif;
 }
 
-#cinemaListContainer {
+/* #cinemaListContainer {
     margin-top: 10px !important;
     width: 100%;
     height: 95vh;
@@ -19,69 +30,117 @@
     display: flex;
     flex-direction: column;
 
-}
+} */
 
 #buttonCList {
-    font-size: 15px;
-    background: #4c00b4;
-    margin: 10px !important;
-    width: 20vh !important;
-    height: 5vh !important;
+  font-size: 20px;
+  font-weight: 10%;
+  /* border: black solid 2px; */
+  border: none;
+  border-radius: 10px;
+  background: red;
+  margin: 10px !important;
+  width: 20vh !important;
+  height: 5vh !important;
 }
-
-#buttonContainer, #movieDiscriptionContainer, #cenimaDiscription, #cenimaTimeSchedule{
+#buttonCList:hover {
+  background-color: white;
+  cursor: pointer;
+}
+/* #buttonContainer,#cinemaDescription, #cinemaTimeSchedule{
     border: solid;
     margin: 1vh;
     
+} */
+
+#listContainer {
+  display: flex;
+  overflow: auto;
+  max-height: 100%;
 }
 
+#movieDescriptionContainer {
+  width: 100vw;
+  height: 100%;
+}
+/* #cinemaTitle,#movieDescriptionContainer{
+    margin: 2vh;
+} */
+.imageAndTitle {
+  /* border:red solid 4px; */
+}
 #imageContainer {
-    width: 36rem;
-    height: 31.5rem;
-    padding: 10px;
-    border: solid;
-    margin: 1vh;
-}
-#listContainer{
-    display: flex;
-    overflow: auto;
-    max-height: 100%;
-}
-#movieDiscriptionContainer {
-    width: 100%;
-}
-#cenimaTitle,#movieDiscriptionContainer{
-    margin: 2vh;
-}
-#cenimaTitle{
-    font-size: 5vh;
-    border: solid;
-    margin: 1vh;
-}
-#cenimaDiscription{
-    padding: 1vh;
-    font-size: 3vh;
-    height: 20%;
-    overflow-y: auto; 
+  width: 36rem;
+  height: 31.5rem;
+  padding: 10px;
+  border-radius: 20px;
+  /* border: solid;
+    margin: 1vh; */
 }
 
-#cenimaTimeSchedule{
-    height: 79%;
-    overflow-y: auto ;
+#cinemaTitle {
+  font-size: 4vh;
+  color: black;
+  font-weight: border;
+  /* border: solid;
+    margin: 1vh; */
+  text-align: center;
+  font-family: "Hedvig Letters Serif", serif;
+}
+#cinemaDescription {
+  padding: 2vh;
+  /* margin-left: 3vh; */
+  font-size: 2vh;
+  height: 20%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 200px;
+  font-family: "Nanum Myeongjo", cursive;
+  color: black;
+
+  &::-webkit-scrollbar {
+    width: 7px; /* width of the scrollbar */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: red; /* color of the thumb */
+    border-radius: 10px; /* roundness of the thumb */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: white; /* color of the track */
+  }
 }
 
-.cenimaTimeContainer{
-    display: flex;
-    border: solid;
-    margin: 1vh;
-    overflow-y: auto; 
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    
+#cinemaTimeSchedule {
+  height: 79%;
+  overflow-y: auto;
 }
 
-.cinemaContents{
-    margin: 2vh;
-    
+.cinemaTimeContainer {
+  display: flex;
+  border: solid;
+  border-radius: 10px;
+  margin: 1vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.cinemaContents {
+  margin: 2vh;
+}
+
+#selectButton {
+  border: none;
+  background-color: red !important;
+  color: black;
+}
+
+#selectButton:hover {
+  background-color: white !important;
+  cursor: pointer;
 }

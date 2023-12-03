@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 const ImageComponent = () => {
+  const navigate = useNavigate();
   const [showDescriptions, setShowDescriptions] = useState(Array(4).fill(false)); // State to manage descriptions
   const [movies, setMovies] = useState([]);
 
@@ -47,7 +48,6 @@ const ImageComponent = () => {
     setShowDescriptions(newShowDescriptions);
   };
 
-  // function handleClickRE
 
   return (
     <div className="home-container">
@@ -60,9 +60,9 @@ const ImageComponent = () => {
 
           <label class="logo">Yamadasan's</label>
           <ul>
-            <li><a class="active"  href="#">Home</a></li>
-            <li><a class="active1"href="#">Reserve</a></li>
-            <li><a class="active2" href="#">Cancel Reservation</a></li>
+            <li><Link class="active"  to="/home">Home</Link></li>
+            <li><Link class="active1" to="/datelist">Reserve</Link></li>
+            <li><Link class="active2" to="/cancelreservation">Cancel Reservation</Link></li>
           </ul>
         </nav>
 
