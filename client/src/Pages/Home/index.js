@@ -68,7 +68,7 @@ const ImageComponent = () => {
           </ul>
         </nav>
 
-        <section>
+        <section id="image-container-parent">
           <div className="image-container">
             {movies.map((movie, index) => (
               <div className="movie-item" key={index}>
