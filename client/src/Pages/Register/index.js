@@ -17,10 +17,10 @@ function Register() {
       navigate('/login');
     }
   }
-function handleClickLogin(){
-  navigate('/login');
+// function handleClickLogin(){
+//   navigate('/login');
 
-}
+// }
 
 
   return (
