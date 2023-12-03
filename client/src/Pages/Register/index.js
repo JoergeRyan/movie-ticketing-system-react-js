@@ -1,104 +1,106 @@
 import React, { useState } from 'react';
 import { Button, Form, Input, message } from 'antd';
-import * as Icons from '@ant-design/icons';
-import axios from 'axios';
+import '../../Stylesheets/Register.css';
+import * as Icons from "@ant-design/icons";
+import { useNavigate, Link } from 'react-router-dom';
 
 function Register() {
-  const [userData, setUserData] = useState({
-    username: '',
-    password: '',
-    confirmPassword: '',
-  });
+  const navigate = useNavigate();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const handleInputChange = (fieldName, value) => {
-    setUserData((prevData) => ({
-      ...prevData,
-      [fieldName]: value,
-    }));
-  };
-
-  const onFinish = async () => {
-    try {
-      // Make the registration API call using axios
-      const response = await axios.post('http://localhost:5000/api/users/signup', userData);
-      console.log(response.data);
-
-      // Check the success property in the response
-      if (response.data.success) {
-        message.success(response.data.message);
-      } else {
-        message.error(response.data.message);
-      }
-    } catch (error) {
-      console.error('Error during registration:', error.message);
-      message.error('Internal Server Error');
+  function handleClickRegister() {
+    if (!name || !email || !password) {
+      message.error('Please fill in all fields.');
+    } else {
+      navigate('/login');
     }
-  };
+  }
+function handleClickLogin(){
+  navigate('/login');
+
+}
+
 
   return (
-    <div className="login-container">
-      <div className="login-header">
-        <div className="text">Login</div>
-        <div className="underline"></div>
+    
+   <div className="register">
+     <div id='registerBody'>
+      <div className='card p-3 w-400'>
+        <h1 className='text-xl mb-2'style={{fontWeight:"700"}} >
+          Register
+          <center><div className="underline"></div></center>
+        </h1>
+        <Form layout="vertical">
+          <div className="inputs">
+            <div className="input">
+              <Form.Item
+                label=""
+                name="name"
+                rules={[{ required: true, message: " " }]}
+              >
+                <div className="name">
+                  <Input
+                    placeholder="Input Name"
+                    prefix={<Icons.UserOutlined />}
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
+              </Form.Item>
+            </div>
+            <div className="input">
+              <Form.Item
+                label=""
+                name="email"
+                rules={[{ required: true, message: " " }]}
+              >
+                <div className="email">
+                  <Input
+                    placeholder="Email Address"
+                    prefix={<Icons.MailOutlined />}
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
+              </Form.Item>
+            </div>
+            <div className="input">
+              <Form.Item
+                label=""
+                name="password"
+                rules={[{ required: true, message: " " }]}
+              >
+                <div className="password">
+                  <Input
+                    placeholder="Password"
+                    prefix={<Icons.KeyOutlined />}
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </div>
+              </Form.Item>
+            </div>
+          </div>
+          <div className="buttons">
+            {/* <Button onClick={handleClickLogin} type="primary" htmlType='submit' title='CANCEL'>
+              Login
+            </Button> */}
+            <Button className="register-button" onClick={handleClickRegister} type="primary" htmlType='submit' title='REGISTER'>
+              Register
+            </Button>
+          </div>
+          <p>
+            Already have an account? <Link to="/login">Login here</Link>
+          </p>
+        </Form>
       </div>
-      <Form>
-        <div className="inputs">
-          <div className="input">
-            <Form.Item
-              label=""
-              name="username"
-              rules={[{ required: true, message: 'Please input your username!' }]}
-            >
-              <div className="username">
-                <Input
-                  placeholder="Username"
-                  prefix={<Icons.UserOutlined />}
-                  type="text"
-                  onChange={(e) => handleInputChange('username', e.target.value)}
-                />
-              </div>
-            </Form.Item>
-          </div>
-          <div className="input">
-            <Form.Item
-              label=""
-              name="password"
-              rules={[{ required: true, message: 'Please input your password!' }]}
-            >
-              <div className="pass">
-                <Input
-                  placeholder="Password"
-                  prefix={<Icons.KeyOutlined />}
-                  type="password"
-                  onChange={(e) => handleInputChange('password', e.target.value)}
-                />
-              </div>
-            </Form.Item>
-          </div>
-          <div className="input">
-            <Form.Item
-              label=""
-              name="confirmPassword"
-              rules={[{ required: true, message: 'Please input your password!' }]}
-            >
-              <div className="pass">
-                <Input
-                  placeholder="confirm password"
-                  prefix={<Icons.KeyOutlined />}
-                  type="password"
-                  onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
-                />
-              </div>
-            </Form.Item>
-          </div>
-        </div>
-        <div className="submit-container">
-          <Button onClick={onFinish} type="primary" htmlType="submit" title="LOGIN">
-            Register
-          </Button>
-        </div>
-      </Form>
     </div>
+   </div>
   );
 }
 
