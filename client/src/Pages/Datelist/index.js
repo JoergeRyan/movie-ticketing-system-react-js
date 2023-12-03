@@ -12,13 +12,9 @@ import DataHandler,{ dataHandler} from '../../DataHandler';
 function Datelist() {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const navigate = useNavigate(); 
-    // Check if the selected date is in the filteredMovieData
     const isDateInData = (date) => {
-        // Check if selectedDate is not null and date is truthy
         return selectedDate && date && dataHandler.getMovieData().some(movie => (new Date(movie.Date)).toDateString() === date.toDateString());
     };
-
-
 
     const tileContent = ({ date, view }) => {
         if (view === 'month' && isDateInData(date)) {
@@ -34,7 +30,6 @@ function Datelist() {
 
     const handleDateClick = (date) => {
         setSelectedDate(date);
-        // Add your logic for handling the clicked date here
     };
 
     const errorMessageStyle = {
@@ -60,10 +55,10 @@ function Datelist() {
         navigate(-1);
     }
     return (
-        <div id="dateListContainer">
             <div id="dateListSceduleContainer">
-                <h2 id="movieSchedule">Movie Schedule</h2>
-                <div style={{ maxWidth: '900px', }}>
+                <h1 id="movieSchedule">Movie Schedule</h1>
+
+                <div className="calendar">
 
                     <div style={errorMessageStyle}>
                         {isDateInData(selectedDate) ? "Valid Date" : " Please select a valid date."}
@@ -83,7 +78,6 @@ function Datelist() {
 
 
             </div>
-        </div>
 
     );
 }
