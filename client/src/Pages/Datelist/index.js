@@ -6,7 +6,7 @@ import "../../Stylesheets/General.css";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import axios from 'axios';
-
+import set
 import React, { useEffect, useState } from 'react';
 function Datelist() {
     const [selectedDate, setSelectedDate] = useState(new Date());
@@ -63,8 +63,8 @@ function Datelist() {
     
     function handleClickSelectDay() {
         if(isDateInData(selectedDate)){
-            movies.setfilterMoviesByDate(selectedDate);
-            console.log(movies.getfilterMoviesByDate());
+            // movies.setfilterMoviesByDate(selectedDate);
+            // console.log(movies.getfilterMoviesByDate());
         
             navigate('/cinemalist');
         } 
