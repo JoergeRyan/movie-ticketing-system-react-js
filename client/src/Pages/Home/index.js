@@ -72,6 +72,8 @@ const ImageComponent = () => {
     setShowDescriptions(newShowDescriptions);
   };
 
+  // function handleClickRE
+
   return (
     <div className="home-container">
       <div className="navigation">
@@ -83,7 +85,7 @@ const ImageComponent = () => {
 
           <label class="logo">Yamadasan's</label>
           <ul>
-            <li><a class="active" href="#">Home</a></li>
+            <li><a class="active"  href="#">Home</a></li>
             <li><a class="active1"href="#">Reserve</a></li>
             <li><a class="active2" href="#">Cancel Reservation</a></li>
           </ul>
