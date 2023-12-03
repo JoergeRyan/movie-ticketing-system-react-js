@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-            <Route path="landing" element={<Landing/>}></Route>
+            <Route path="/" element={<Landing />} />
             <Route path="home" element={<ImageComponent/>}></Route>
             <Route path="cancelreservation" element={<CancelReservation/>}></Route>
             <Route path="login" element={<Login/>}></Route>
