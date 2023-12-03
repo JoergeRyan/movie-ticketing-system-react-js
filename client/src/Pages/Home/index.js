@@ -92,7 +92,7 @@ const ImageComponent = () => {
           </ul>
         </nav>
 
-        <section>
+        <section id="image-container-parent">
           <div className="image-container">
             {movieData.map((movie, index) => (
               <div className="movie-item" key={index}>

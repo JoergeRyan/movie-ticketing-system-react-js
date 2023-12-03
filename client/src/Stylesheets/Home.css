@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&family=Pixelify+Sans&display=swap");
 
-
 .navigation {
+  display: flex;
+  flex-direction: column;
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -26,7 +27,9 @@ nav ul li {
   line-height: 80px;
   margin: 0 5px;
 }
-a.active:hover, a.active1:hover,a.active2:hover {
+a.active:hover,
+a.active1:hover,
+a.active2:hover {
   background: red;
   transition: 0.5s;
 }
@@ -114,10 +117,9 @@ label.logo {
   flex-wrap: wrap;
   gap: 50px;
   width: 100%;
-  padding-right:60px;
+  padding: 30px;
   background-color: white;
- 
- 
+  overflow: auto;
 }
 /* .image {
   width: 200px;
@@ -126,58 +128,58 @@ label.logo {
   
 } */
 
-.movie-item{
-    width:100%;
-    margin-bottom:20px;
-    position:relative;
-    display:inline-block;
-    text-align:center;
-    box-shadow: 5px 5px 5px gray;
+.movie-item {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  box-shadow: 5px 5px 5px gray;
 }
 
-.description-button{
-    position:absolute;
-    bottom:5px;
-    right:50%;
-    transform: translateX(50%);
+.description-button {
+  position: absolute;
+  bottom: 5px;
+  right: 50%;
+  transform: translateX(50%);
 }
-.movie-item img{
-    width:100%;
-    height:auto;
-    border-radius:10px;
-    margin-left:8%;
+.movie-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  /* margin-left:8%; */
 }
-.toggle-bottom{
-    position:absolute;
-    top:10px;
-    right:10px;
-    padding:5px;
-    background-color:#333;
-    color:#fff;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    
-}
-
-.movie-description{
-    margin-top:10px;
-    font-size:14px;
-    text-align:center;
-    display:none;
+.toggle-bottom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.movie-item:hover .movie-description{
-    display:block;
-@media (max-width: 952px){
-    label.logo{
-        font-size:30px;
-        padding-left:50px;
+.movie-description {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+
+.movie-item:hover .movie-description {
+  display: block;
+  @media (max-width: 952px) {
+    label.logo {
+      font-size: 30px;
+      padding-left: 50px;
     }
-    nav ul li a{
-        font-size:16px;
+    nav ul li a {
+      font-size: 16px;
     }
-}
+  }
 }
 
 @media (max-width: 858px) {
@@ -235,56 +237,49 @@ label.logo {
   font-weight: bold;
 }
 
-.image-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 50px;
+#image-container-parent {
+  display: flex;
   width: 100%;
-  padding-right:60px;
-  background-color: white;
- 
+  justify-content: center;
 }
 
-
-.movie-item{
-    width:100%;
-    margin-bottom:20px;
-    position:relative;
-    display:inline-block;
+.movie-item {
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
 }
 
-.description-button{
-    position:absolute;
-    bottom:5px;
-    right:5px;
+.description-button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
-.movie-item img{
-    width:100%;
-    height:auto;
-    border-radius:10px;
-    margin-left:8%;
+.movie-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  /* margin-left: 8%; */
 }
-.toggle-bottom{
-    position:absolute;
-    top:10px;
-    right:10px;
-    padding:5px;
-    background-color:#333;
-    color:#fff;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
-
-.movie-description{
-    margin-top:10px;
-    font-size:14px;
-    text-align:center;
-    display:none;
+.toggle-bottom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.movie-item:hover .movie-description{
-    display:block;
+.movie-description {
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+  display: none;
+}
+
+.movie-item:hover .movie-description {
+  display: block;
 }
