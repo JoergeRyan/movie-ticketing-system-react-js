@@ -1,23 +1,37 @@
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react'
+
 import { Button, Form } from 'antd';
 import "../../Stylesheets/Datelist.css"
 import "../../Stylesheets/General.css";
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import DataHandler,{ dataHandler} from '../../DataHandler';
+import axios from 'axios';
 
-
-
+import React, { useEffect, useState } from 'react';
 function Datelist() {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [movies, setMovies] = useState([]);
     const navigate = useNavigate(); 
     // Check if the selected date is in the filteredMovieData
     const isDateInData = (date) => {
         // Check if selectedDate is not null and date is truthy
-        return selectedDate && date && dataHandler.getMovieData().some(movie => (new Date(movie.Date)).toDateString() === date.toDateString());
+        return selectedDate && date && movies.some(movie => (new Date(movie.Date)).toDateString() === date.toDateString());
     };
 
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const response = await axios.get('http://localhost:5000/movies/all'); // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
+            console.log(response.data);
+            
+            setMovies(response.data); // Assuming the response data is an array of movies
+          } catch (error) {
+            console.error('Error fetching movie data:', error);
+          }
+        };
+      
+        fetchData();
+      }, []); 
 
 
     const tileContent = ({ date, view }) => {
@@ -49,8 +63,8 @@ function Datelist() {
     
     function handleClickSelectDay() {
         if(isDateInData(selectedDate)){
-            dataHandler.setfilterMoviesByDate(selectedDate);
-            console.log(dataHandler.getfilterMoviesByDate());
+            movies.setfilterMoviesByDate(selectedDate);
+            console.log(movies.getfilterMoviesByDate());
         
             navigate('/cinemalist');
         } 
