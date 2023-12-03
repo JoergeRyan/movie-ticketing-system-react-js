@@ -22,9 +22,9 @@ app.use(cors());
 app.use(express.json());
 
 // app.use(express.static("uploads"));
-app.use("/api/movies", moviesRoutes);
-app.use("/api/tickets", ticketsRoutes);
-app.use("/api/users", userRoutes);
+app.use("/movies", moviesRoutes);
+app.use("/tickets", ticketsRoutes);
+app.use("/users", userRoutes);
 
 mongoose.set({ strictQuery: true });
 mongoose

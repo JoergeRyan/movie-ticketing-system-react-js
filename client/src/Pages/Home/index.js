@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
 import "../../Stylesheets/Home.css";
+import axios from 'axios';
 
 import inceptionImage from "../../Assets/movies/inception.jpg";
 import intersellarImage from "../../Assets/movies/intersellar.jpg";
@@ -14,56 +15,92 @@ import loveImage from "../../Assets/movies/love.jpg";
 
 const ImageComponent = () => {
   const [showDescriptions, setShowDescriptions] = useState(Array(4).fill(false)); // State to manage descriptions
+  const [movies, setMovies] = useState([]);
 
-  // Define movie data with descriptions
-  const movieData = [
-    {
-      image: inceptionImage,
-      title: "Inception",
-      alt: "Inception",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster"
-    },
-    {
-      image: intersellarImage,
-      alt: "Intersellar",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: dunkirkImage,
-      alt: "Dunkirk",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: mementoImage,
-      alt: "Memento",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: moanaImage,
-      alt: "Moana",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: barbieImage,
-      alt: "Barbie",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: nunImage,
-      alt: "Nun",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: howsImage,
-      alt: "hows",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-    {
-      image: loveImage,
-      alt: "hows",
-      description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
-    },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/movies/all'); // Replace 'YOUR_API_ENDPOINT' with the actual API endpoint
+        console.log(response.data);
+        
+        setMovies(getOneMoviePerTitle(response.data)); // Assuming the response data is an array of movies
+      } catch (error) {
+        console.error('Error fetching movie data:', error);
+      }
+    };
+  
+    fetchData();
+  }, []); 
+  
+
+  let getOneMoviePerTitle = (schedule) => {
+
+    const uniqueTitles = new Set();
+    const result = [];
+    
+    schedule.forEach((movie) => {
+      if (!uniqueTitles.has(movie.Movie)) {
+        uniqueTitles.add(movie.Movie);
+        console.log(movie);
+        result.push(movie);
+      }
+    });
+    return result;
+  };
+  
+
+  
+  // The empty dependency array ensures that this effect runs once when the component mounts
+  
+  // // Define movie data with descriptions
+  // const movieData = [
+  //   {
+  //     image: inceptionImage,
+  //     title: "Inception",
+  //     alt: "Inception",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster"
+  //   },
+  //   {
+  //     image: intersellarImage,
+  //     alt: "Intersellar",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: dunkirkImage,
+  //     alt: "Dunkirk",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: mementoImage,
+  //     alt: "Memento",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: moanaImage,
+  //     alt: "Moana",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: barbieImage,
+  //     alt: "Barbie",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: nunImage,
+  //     alt: "Nun",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: howsImage,
+  //     alt: "hows",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  //   {
+  //     image: loveImage,
+  //     alt: "hows",
+  //     description: "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O., but his tragic past may doom the project and his team to disaster",
+  //   },
+  // ];
 
   // Function to toggle movie description visibility
   const toggleDescription = (index) => {
@@ -93,9 +130,9 @@ const ImageComponent = () => {
 
         <section>
           <div className="image-container">
-            {movieData.map((movie, index) => (
+            {movies.map((movie, index) => (
               <div className="movie-item" key={index}>
-                <img src={movie.image} alt={movie.alt} />
+                <img style = {{height: "60vh",width:"40vh"}}src={movie.imgSource} />
                 <button
                   className="toggle-button"
                   onClick={() => toggleDescription(index)}
@@ -103,7 +140,7 @@ const ImageComponent = () => {
                   Description
                 </button>
                 {showDescriptions[index] && (
-                  <p className="movie-description">{movie.description}</p>
+                  <p className="movie-description">{movie.Discription}</p>
                 )}
               </div>
             ))}

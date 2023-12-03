@@ -112,6 +112,7 @@ label.logo {
   grid-template-columns: auto auto auto auto;
   justify-content: center;
   flex-wrap: wrap;
+  height: 1vh;
   gap: 50px;
   width: 100%;
   padding-right:60px;

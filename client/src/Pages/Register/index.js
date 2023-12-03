@@ -3,6 +3,7 @@ import { Button, Form, Input, message } from 'antd';
 import '../../Stylesheets/Register.css';
 import * as Icons from "@ant-design/icons";
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios'; // Import Axios
 
 function Register() {
   const navigate = useNavigate();
@@ -10,17 +11,33 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  function handleClickRegister() {
+  async function handleClickRegister() {
     if (!name || !email || !password) {
       message.error('Please fill in all fields.');
     } else {
-      navigate('/login');
+      try {
+        console.log(name,email,password);
+        // Make an Axios request to your server's register endpoint
+        const response = await axios.post('http://localhost:5000/users/signup', {
+          username: name,
+          email: email,
+          password: password,
+        });
+        console.log('Server Response:', response.data);
+        // Handle the response, you might want to check for success or display a message
+        if (response.data) {
+          message.success('Registration successful!');
+          navigate('/login');
+        } else {
+          message.error('Registration failed. Please try again.');
+        }
+      } catch (error) {
+        console.error('An error occurred during registration:', error);
+        message.error('An error occurred during registration. Please try again.');
+      }
     }
   }
-function handleClickLogin(){
-  navigate('/login');
 
-}
 
 
   return (
