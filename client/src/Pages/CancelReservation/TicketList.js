@@ -2,7 +2,6 @@ import React from "react";
 import { List, Button } from "antd";
 
 const TicketList = ({ data, handleCancelTicket }) => {
-  console.log(data);
 
   return (
     <List

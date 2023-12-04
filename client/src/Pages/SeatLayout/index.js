@@ -17,11 +17,9 @@ function SeatLayout() {
   const [selectedSeats, setSelectedSeats] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
-  const isPremiere = false;
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const id = searchParams.get("id");
-
 
   useEffect(() => {
     async function getMovie() {
@@ -37,11 +35,11 @@ function SeatLayout() {
         // console.log("Server Response:", response.data);
         // Handle the response, you might want to check for success or display a message
         if (response.data) {
-          console.log("Registration successful!");
+          console.log("get moive successful!");
           setSelectedMovie(response.data);
           // navigate('/home');
         } else {
-          console.error("Registration failed. Please try again.");
+          console.error("get moive failed. Please try again.");
         }
       } catch (error) {
         console.error("An error occurred during registration:", error);
@@ -68,7 +66,7 @@ function SeatLayout() {
       let discountedSeats = seniorsCount * discount;
       let totalPriceWithtDiscount =
         (totalSeats - discountedSeats) * pricePerSeat;
-      setTotalPrice(totalPriceWithtDiscount);
+      setTotalPrice(Math.round(totalPriceWithtDiscount));
     } else {
       // Calculate total price without discount
       let totalPriceWithoutDiscount = totalSeats * pricePerSeat;
@@ -197,7 +195,11 @@ function SeatLayout() {
           <div
             key={seatId}
             className={seatClass}
-            onClick={() => handleSeatClick(seatId)}
+            onClick={() => {
+              if (!seatClass.includes('reserved')) {
+                handleSeatClick(seatId);
+              }
+            }}
           >
             {seatId}
           </div>
@@ -221,26 +223,28 @@ function SeatLayout() {
           <div className="seat-grid">{renderSeats()}</div>
           <div className="division">
             <div className="description">
-              <ul>Cinema:</ul>
-              <ul>Movie</ul>
-              <ul>Time</ul>
-              <ul>Premiere</ul>
+              { selectedMovie && <>
+                <ul>Cinema: {selectedMovie.Screen}</ul>
+              <ul>Movie: {selectedMovie.Movie}</ul>
+              <ul>Time: {selectedMovie.StartTime} - {selectedMovie.EndTime}</ul>
+              <ul>Premiere: {selectedMovie.Premier?"Yes":"No"}</ul>
               <ul>Seats : {selectedSeats.join(" ")}</ul>
               <ul>Total : ₱ {totalPrice}</ul>
+              </>
+              }
             </div>
-            {isPremiere ? (
-              <div>No</div>
-            ) : (
-              <div className="seniors-input">
+            {selectedMovie && !selectedMovie.Premier && <div className="seniors-input">
                 <label htmlFor="seniorsInput">Number of Seniors</label>
                 <input
                   type="number"
                   id="seniorsinput"
                   value={seniorsCount}
                   onChange={handleSeniorsInputChange}
+                  min={0}
+                  max={selectedSeats.length}
                 />
               </div>
-            )}
+            }
             <div className="button">
               <Button
                 className="exitbutton"

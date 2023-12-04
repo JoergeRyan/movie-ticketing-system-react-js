@@ -2,7 +2,6 @@ import React from 'react';
 import { Modal, Button } from 'antd';
 
 const TicketModal = ({ open, onCancel, onConfirm, selectedTicket }) => {
-  console.log(open)
   return (
     <Modal
       title="Cancel Confirmation"

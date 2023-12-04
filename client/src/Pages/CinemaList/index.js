@@ -46,7 +46,7 @@ function CinemaList() {
 
   let onClickCinemaButton = (movie1) => {
     console.log(movie1);
-    navigate("/seatlayout?id="+movie1._id);
+    navigate("/seatlayout?id=" + movie1._id);
   };
 
   console.log("asdf", schedules, "Sehcdles");
@@ -68,9 +68,9 @@ function CinemaList() {
           <button id="buttonCList" onClick={() => onClickCinema(3)}>
             Cinema 4
           </button>
-          <button id="buttonCList" onClick={() => onClickCinema(4)}>
+          {/* <button id="buttonCList" onClick={() => onClickCinema(4)}>
             Cinema 5
-          </button>
+          </button> */}
         </div>
 
         {schedules.map(
@@ -78,7 +78,18 @@ function CinemaList() {
             index === displayMovie && (
               <div id="listContainer" key={index}>
                 <div className="imageAndTitle">
-                  <img id="imageContainer" src={tempImage} alt="Movie Poster" />
+                  {/* <img id="imageContainer" src={tempImage} alt="Movie Poster" /> */}
+                  <div className="video-responsive">
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/YoHD9XEInc0`}
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
                   <h1 id="cinemaTitle">{movie.Movie}</h1>
                 </div>
 
@@ -86,29 +97,33 @@ function CinemaList() {
                   <div id="cinemaDescription">
                     <p>
                       {" "}
-                      Line 2:22: 'Form' is defined but never used no-unused-vars
-                      Line 4:12: 'Data4:12: 'DataHandler' is defined but never
-                      used no-unused-vars Line 4:27: 'dataHandler' is defined
-                      but never used no-unused-vars Line 23:25: img 4:12:
-                      'DataH4:12: 'DataHandler' is defined but never used
-                      no-unused-vars Line 4:12: 'Data4:12: 'DataHandler' is
-                      defined but never used no-unused-vars Line 4:27:
-                      'dataHandler' is defined but never used no-unused-vars
-                      Line 23:25: img 4 Line 23:25: img 4:12: 'DataH4:12:
-                      'DataHandler' is defined but never used no-unused-vars
-                      Line 4:12: 'Data4:12: 'DataHandler' is defined but never
-                      used no-unused-vars Line 4:27: 'dataHandler' is defined
-                      but never used no-unused-vars Line 23:25: img 4
+                      Cobb and Arthur are "extractors" who perform corporate
+                      espionage using experimental dream-sharing technology to
+                      infiltrate their targets' subconscious and extract
+                      information. Their latest target, Saito, is impressed with
+                      Cobb's ability to layer multiple dreams within each other.
+                      He offers to hire Cobb for the ostensibly impossible job
+                      of implanting an idea into a person's subconscious;
+                      performing "inception" on Robert Fischer, the son of
+                      Saito's competitor Maurice Fischer, with the idea to
+                      dissolve his father's company. In return, Saito promises
+                      to clear Cobb's criminal status, allowing him to return
+                      home to his children.{" "}
+                      <i>
+                        <b>Its not the looks but the rizz</b>
+                      </i>{" "}
                     </p>
                   </div>
 
                   <div id="cinemaTimeSchedule">
                     {schedules.map(
                       (movie1, index) =>
-                        movie1.Screen === displayMovie + 1 && (
+                        (movie1.Screen === displayMovie + 1) && (
                           <div className="cinemaTimeContainer">
                             <p className="cinemaContents">{`Time : ${movie1.StartTime} - ${movie1.EndTime}`}</p>
-                            <p className="cinemaContents">{`Reserved Seats : ${movie1.Reserved? movie1.Reserved.length:0} out of 40`}</p>
+                            <p className="cinemaContents">{`Reserved Seats : ${
+                              movie1.Reserved ? movie1.Reserved.length : 0
+                            } out of 40`}</p>
                             <Button
                               id="selectButton"
                               onClick={() => onClickCinemaButton(movie1)}
