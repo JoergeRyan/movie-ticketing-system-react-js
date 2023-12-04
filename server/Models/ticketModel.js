@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 const ticketSchema = new mongoose.Schema({
-    ticketNumber: String,
+    // ticketNumber: String,s
     movieId: String,
+    movieName: String,
     seats: [
         {
             type: String,

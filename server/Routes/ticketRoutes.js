@@ -7,7 +7,7 @@ const {
     updateTicket,
     deleteTicket,
     getTickets,
-} = require("../controllers/ticketController");
+} = require("../Controllers/ticketController");
 
 router.get("/allByTicket", getTicketsForMovie);
 router.get("/all", getTickets);

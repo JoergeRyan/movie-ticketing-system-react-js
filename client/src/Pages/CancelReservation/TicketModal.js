@@ -11,14 +11,13 @@ const TicketModal = ({ open, onCancel, onConfirm, selectedTicket }) => {
         <Button key="cancel" type="primary" onClick={onCancel}>
           Cancel
         </Button>,
-        <Button key="confirm" type="primary" onClick={onConfirm}>
-          Confirm Cancel
+        <Button key="confirm" type="primary" onClick={onConfirm(selectedTicket ? selectedTicket._id : '')}>
+          Confirm
         </Button>,
       ]}
     >
       <p>
-        Are you sure you want to cancel the ticket with number{' '}
-        <b>{selectedTicket ? selectedTicket.ticketNumber : ''}</b>?
+        Are you sure you want to cancel the ticket with number  <b>{selectedTicket ? selectedTicket._id : ''}</b>?
       </p>
       <p>
         Total Price: $$$(Coming Soon)

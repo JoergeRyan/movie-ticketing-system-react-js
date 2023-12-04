@@ -46,7 +46,7 @@ function CinemaList() {
 
   let onClickCinemaButton = (movie1) => {
     console.log(movie1);
-    navigate("/seatlayout");
+    navigate("/seatlayout?id="+movie1._id);
   };
 
   console.log("asdf", schedules, "Sehcdles");
@@ -107,8 +107,8 @@ function CinemaList() {
                       (movie1, index) =>
                         movie1.Screen === displayMovie + 1 && (
                           <div className="cinemaTimeContainer">
-                            <p className="cinemaContents">{`Time : ${movie1.StartTime} - ${movie1.EndTime} ${movie1.Reserved}`}</p>
-                            <p className="cinemaContents">{`Reserved Seats : ${movie1.Reserved} out of 40`}</p>
+                            <p className="cinemaContents">{`Time : ${movie1.StartTime} - ${movie1.EndTime}`}</p>
+                            <p className="cinemaContents">{`Reserved Seats : ${movie1.Reserved? movie1.Reserved.length:0} out of 40`}</p>
                             <Button
                               id="selectButton"
                               onClick={() => onClickCinemaButton(movie1)}

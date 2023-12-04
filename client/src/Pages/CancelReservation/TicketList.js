@@ -1,15 +1,17 @@
-import React from 'react';
-import { List, Button } from 'antd';
+import React from "react";
+import { List, Button } from "antd";
 
 const TicketList = ({ data, handleCancelTicket }) => {
+  console.log(data);
+
   return (
     <List
       dataSource={data}
       renderItem={(item) => (
         <List.Item className="list-item">
-          {item.ticketNumber} - {item.description} - {item.status}
+          {item._id} - {item.movieName} - {item.seats.length}
           <Button type="primary" onClick={() => handleCancelTicket(item)}>
-            Cancel 
+            Cancel
           </Button>
         </List.Item>
       )}

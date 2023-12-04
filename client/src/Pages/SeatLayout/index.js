@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Button, Modal } from "antd";
 import "../../Stylesheets/SeatLayout.css";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
 
 function SeatLayout() {
   const navigate = useNavigate();
@@ -17,14 +18,45 @@ function SeatLayout() {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const isPremiere = false;
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get("id");
+
 
   useEffect(() => {
-    if (selectedMovie){
-      document.body.style.backgroundImage = `url('${selectedMovie.imgSource}')`;
-      document.body.style.backgroundSize = "cover";
-      document.bofy.style.backroundRepeat = "no-repeat"
+    async function getMovie() {
+      console.log("test ="+id);
+      try {
+        // Make an Axios request to your server's register endpoint
+        const response = await axios.post(
+          "http://localhost:5000/movies/getOneMovie",
+          {
+            id: id
+          }
+        );
+        // console.log("Server Response:", response.data);
+        // Handle the response, you might want to check for success or display a message
+        if (response.data) {
+          console.log("Registration successful!");
+          setSelectedMovie(response.data);
+          // navigate('/home');
+        } else {
+          console.error("Registration failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("An error occurred during registration:", error);
+      }
     }
-  }, [selectedMovie]);
+    getMovie();
+  }, []);
+
+  // useEffect(() => {
+  //   if (selectedMovie) {
+  // document.body.style.backgroundImage = `url('${selectedMovie.imgSource}')`;
+  // document.body.style.backgroundSize = "cover";
+  // document.bofy.style.backroundRepeat = "no-repeat";
+  // }
+  // }, [selectedMovie]);
 
   useEffect(() => {
     let totalSeats = selectedSeats.length;
@@ -73,10 +105,72 @@ function SeatLayout() {
 
   const handleModalConfirm = () => {
     setIsModalVisible(false);
+    
+    let SelMov = [...selectedMovie.Reserved];
     const updatedSeats = document.querySelectorAll(".seat.selected");
+    let flat=[]
     updatedSeats.forEach((seat) => {
       seat.classList.add("reserved");
+      SelMov.push(seat.innerHTML)
+      flat.push(seat.innerHTML)
     });
+    console.log(flat)
+    console.log("backend call");
+    // const SelMov = [...selectedMovie.Reserved, updatedSeats]
+    console.log(SelMov);
+    async function getMovie() {
+      console.log("test");
+      try {
+        // Make an Axios request to your server's register endpoint
+        const response = await axios.patch(
+          "http://localhost:5000/movies/reserve",
+          {
+            id: selectedMovie._id,
+            Reserved: SelMov
+          }
+        );
+        console.log("Server Response:", response.data);
+        // Handle the response, you might want to check for success or display a message
+        if (response.data) {
+          console.log("update successful!");
+          // setSelectedMovie(response.data);
+          // navigate('/home');
+        } else {
+          console.error("Registration failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("An error occurred during registration:", error);
+      }
+    }
+    getMovie();
+    async function makeTicket() {
+      console.log("test ticket");
+      try {
+        // Make an Axios request to your server's register endpoint
+        const response = await axios.post(
+          "http://localhost:5000/tickets/add",
+          {
+            movieId: selectedMovie._id,
+            movieName: selectedMovie.Movie,
+            seats: flat,
+            numSenior: seniorsCount
+          }
+        );
+        console.log("Server Response:", response.data);
+        // Handle the response, you might want to check for success or display a message
+        if (response.data) {
+          console.log("make ticket successful!");
+          // setSelectedMovie(response.data);
+          // navigate('/home');
+        } else {
+          console.error("Registration failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("An error occurred during registration:", error);
+      }
+    }
+    makeTicket()
+    window.location.reload()
   };
 
   const handleModalCancel = () => {
@@ -90,7 +184,14 @@ function SeatLayout() {
       for (let j = 0; j < columns; j++) {
         const seatId = convertToAlphanumeric(j, i);
         const isSelected = selectedSeats.includes(seatId);
-        const seatClass = isSelected ? "seat selected" : "seat";
+        let seatClass = isSelected ? "seat selected" : "seat";
+        if (
+          selectedMovie &&
+          selectedMovie.Reserved &&
+          selectedMovie.Reserved.includes(seatId)
+        ) {
+          seatClass += " reserved";
+        }
         rowSeats.push(
           <div
             key={seatId}
@@ -107,6 +208,7 @@ function SeatLayout() {
         </div>
       );
     }
+    console.log();
     return seats;
   };
 
@@ -118,23 +220,25 @@ function SeatLayout() {
           <div className="seat-grid">{renderSeats()}</div>
           <div className="division">
             <div className="description">
-              <ul>Cinema</ul>
+              <ul>Cinema:</ul>
               <ul>Movie</ul>
               <ul>Time</ul>
               <ul>Premiere</ul>
               <ul>Seats : {selectedSeats.join(" ")}</ul>
               <ul>Total : ₱ {totalPrice}</ul>
             </div>
-            {isPremiere ? (<div>No</div>) : (
-            <div className="seniors-input">
-              <label htmlFor="seniorsInput">Number of Seniors</label>
-              <input
-                type="number"
-                id="seniorsinput"
-                value={seniorsCount}
-                onChange={handleSeniorsInputChange}
-              />
-            </div>
+            {isPremiere ? (
+              <div>No</div>
+            ) : (
+              <div className="seniors-input">
+                <label htmlFor="seniorsInput">Number of Seniors</label>
+                <input
+                  type="number"
+                  id="seniorsinput"
+                  value={seniorsCount}
+                  onChange={handleSeniorsInputChange}
+                />
+              </div>
             )}
             <div className="button">
               <Button
