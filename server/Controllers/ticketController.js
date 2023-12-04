@@ -43,6 +43,7 @@ const addTicket = async (req, res) => {
         seats: req.body.seats,
         movieName: req.body.movieName,
         numSenior: req.body.numSenior,
+        price: req.body.price
     })
     return ticket.save()
         .then(output=> {
@@ -96,7 +97,7 @@ const deleteTicket = async (req, res) => {
     const { id } = req.body;
 
     try {
-        const deletedTicket = await Ticket.findOneAndDelete(id);
+        const deletedTicket = await Ticket.findByIdAndDelete(id);
         if (!deletedTicket) {
             return res.status(404).json({ message: "Ticket not found" });
         }
@@ -106,6 +107,7 @@ const deleteTicket = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
 
 module.exports = {
     getTicketsForMovie,

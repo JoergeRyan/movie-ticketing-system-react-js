@@ -9,7 +9,8 @@ const ticketSchema = new mongoose.Schema({
             type: String,
         },
     ],
-    numSenior: Number
+    numSenior: Number,
+    price: Number
 });
 
 module.exports = mongoose.model("Ticket", ticketSchema);

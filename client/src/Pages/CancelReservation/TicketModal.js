@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, Button } from 'antd';
 
 const TicketModal = ({ open, onCancel, onConfirm, selectedTicket }) => {
+  console.log(open)
   return (
     <Modal
       title="Cancel Confirmation"
@@ -11,8 +12,8 @@ const TicketModal = ({ open, onCancel, onConfirm, selectedTicket }) => {
         <Button key="cancel" type="primary" onClick={onCancel}>
           Cancel
         </Button>,
-        <Button key="confirm" type="primary" onClick={onConfirm(selectedTicket ? selectedTicket._id : '')}>
-          Confirm
+        <Button key="confirm" type="primary" onClick={onConfirm}>
+          Confirm 
         </Button>,
       ]}
     >
@@ -20,7 +21,7 @@ const TicketModal = ({ open, onCancel, onConfirm, selectedTicket }) => {
         Are you sure you want to cancel the ticket with number  <b>{selectedTicket ? selectedTicket._id : ''}</b>?
       </p>
       <p>
-        Total Price: $$$(Coming Soon)
+        Total Price: {selectedTicket? selectedTicket.price:'0.00'}
       </p>
     </Modal>
   );

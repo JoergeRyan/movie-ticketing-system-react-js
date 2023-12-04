@@ -153,7 +153,8 @@ function SeatLayout() {
             movieId: selectedMovie._id,
             movieName: selectedMovie.Movie,
             seats: flat,
-            numSenior: seniorsCount
+            numSenior: seniorsCount,
+            price: totalPrice
           }
         );
         console.log("Server Response:", response.data);

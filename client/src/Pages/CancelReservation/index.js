@@ -6,42 +6,6 @@ import "antd/dist/reset.css";
 import "../../Stylesheets/CancelReservation.css";
 import axios from "axios";
 
-// Initial ticket data outside the component
-const initialTicketData = [
-  {
-    ticketNumber: "T12354",
-    description: "Transformers",
-    status: "Open",
-  },
-  {
-    ticketNumber: "T12456",
-    description: "Shaolin Soccer",
-    status: "In Progress",
-  },
-  {
-    ticketNumber: "T12367",
-    description: "Toy Story",
-    status: "Closed",
-  },
-  {
-    ticketNumber: "T12367",
-    description: "Toy Story",
-    status: "Closed",
-  },
-  {
-    ticketNumber: "T12367",
-    description: "Toy Story",
-    status: "Closed",
-  },
-  {
-    ticketNumber: "T12367",
-    description: "Toy Story",
-    status: "Closed",
-  },
-
-  // Add more ticket objects as needed
-];
-
 const CancelReservation = () => {
   const [searchText, setSearchText] = useState("");
   const [ticketData, setTicketData] = useState([]);
@@ -74,7 +38,6 @@ const CancelReservation = () => {
     getTickets();
   }, []);
 
-
   // useEffect(() => {
   // If search text is empty, show all tickets
   // if (!searchText.trim()) {
@@ -101,37 +64,109 @@ const CancelReservation = () => {
     setIsModalVisible(false);
   };
 
-  async function deleteTicket(id) {
-    console.log("test ticket");
-    try {
-      // Make an Axios request to your server's register endpoint
-      const response = await axios.delete(
-        "http://localhost:5000/tickets/delete",
-        {
-          id: id
-        }
-      );
-      console.log("Server Response:", response.data);
-      // Handle the response, you might want to check for success or display a message
-      if (response.data) {
-        console.log("delete ticket successful!");
-        // setSelectedMovie(response.data);
-        // navigate('/home');
-      } else {
-        console.error("Registration failed. Please try again.");
-      }
-    } catch (error) {
-      console.error("An error occurred during registration:", error);
-    }
-  }
-  
-  const handleModalConfirm = (id) => {
+  const handleModalConfirm = () => {
+    console.log(selectedTicket);
+    console.log("---");
+    console.log(ticketData);
     // Implement logic to cancel the selected ticket
     // const updatedTickets = ticketData.filter(
     //   (ticket) => ticket.ticketNumber !== selectedTicket.ticketNumber
     // );
     // console.log(id)
-    deleteTicket(id)
+
+    const ticketToDelete = ticketData.find(ticket => ticket._id === selectedTicket._id);
+    console.log("tickettodelete- "+ticketToDelete)
+    let newSeats = [];
+
+    async function getMovie() {
+      console.log("test");
+      try {
+        // Make an Axios request to your server's register endpoint
+        const response = await axios.post(
+          "http://localhost:5000/movies/getOneMovie",
+          {
+            id: ticketToDelete.movieId
+          }
+        );
+        // console.log("Server Response:", response.data);
+        // Handle the response, you might want to check for success or display a message
+        if (response.data) {
+          console.log("Registration successful!");
+          newSeats=response.data.Reserved;
+          // navigate('/home');
+        } else {
+          console.error("Registration failed. Please try again.");
+        }
+      } catch (error) {
+        console.error("An error occurred during registration:", error);
+      }
+    }
+    getMovie(); 
+      // console.log(ticketToDelete)
+
+    async function removeReservedSeat() {
+      console.log("delete");
+      
+      console.log(ticketToDelete)
+      console.log(newSeats)
+      newSeats = newSeats.filter(seat => !ticketToDelete.seats.includes(seat));
+      ticketToDelete.seats.forEach(element => {
+        newSeats.splice(newSeats.indexOf(element),1)
+        console.log(newSeats)
+      });
+      try {
+        // Make an Axios request to delete the ticket by ID
+        const response = await axios.patch(
+          "http://localhost:5000/movies/reserve",
+          {
+            id: ticketToDelete.movieId,
+            Reserved: newSeats
+          }
+        );
+        console.log("Server Response:", response.data);
+
+        // Check if the delete operation was successful
+        if (response.status === 200) {
+          console.log("Delete ticket successful!");
+          // Perform actions after successful deletion if needed
+        } else {
+          console.error("Failed to delete ticket. Please try again.");
+          // Handle the error or display a message to the user
+        }
+      } catch (error) {
+        console.error("An error occurred during ticket deletion:", error);
+        // Handle the error or display a message to the user
+      }
+    }
+    removeReservedSeat();
+
+    async function deleteTicket() {
+      console.log("delete");
+      try {
+        // Make an Axios request to delete the ticket by ID
+        const response = await axios.delete(
+          "http://localhost:5000/tickets/delete",
+          {
+            data: { id: selectedTicket },
+          }
+        );
+        window.location.reload();
+        console.log("Server Response:", response.data);
+
+        // Check if the delete operation was successful
+        if (response.status === 200) {
+          console.log("Delete ticket successful!");
+          // Perform actions after successful deletion if needed
+        } else {
+          console.error("Failed to delete ticket. Please try again.");
+          // Handle the error or display a message to the user
+        }
+      } catch (error) {
+        console.error("An error occurred during ticket deletion:", error);
+        // Handle the error or display a message to the user
+      }
+    }
+    deleteTicket();
     // getTickets()
     // setTicketData(updatedTickets);
     setSelectedTicket(null);
