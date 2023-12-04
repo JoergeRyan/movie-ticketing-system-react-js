@@ -23,15 +23,21 @@ const initialTicketData = [
     status: 'Closed',
   },
   {
-    ticketNumber: 'T13777',
+    ticketNumber: 'T12367',
     description: 'Toy Story',
     status: 'Closed',
   },
   {
-    ticketNumber: 'T20007',
+    ticketNumber: 'T12367',
     description: 'Toy Story',
     status: 'Closed',
   },
+  {
+    ticketNumber: 'T12367',
+    description: 'Toy Story',
+    status: 'Closed',
+  },
+  
   // Add more ticket objects as needed
 ];
 
@@ -62,8 +68,9 @@ const CancelReservation = () => {
     setTicketData(filteredTickets);
   }, [searchText]);
 
-  const handleCancelTicket = (ticket) => {
-    setSelectedTicket(ticket);
+  const handleCancelTicket = (ticket)=> {
+    setSelectedTicket(ticket)
+;
     setIsModalVisible(true);
   };
 
@@ -75,7 +82,7 @@ const CancelReservation = () => {
   const handleModalConfirm = () => {
     // Implement logic to cancel the selected ticket
     const updatedTickets = ticketData.filter(
-      (ticket) => ticket.ticketNumber !== selectedTicket.ticketNumber
+      (ticket)=> ticket.ticketNumber !== selectedTicket.ticketNumber
     );
 
     setTicketData(updatedTickets);
@@ -85,16 +92,18 @@ const CancelReservation = () => {
 
   return (
     <div className="CancelReservationBody">
-    <div className="Cancel">
-      <SearchBar onSearch={handleSearch} />
-      <TicketList data={ticketData} handleCancelTicket={handleCancelTicket} />
-      <TicketModal
-        open={isModalVisible}
-        onCancel={handleModalCancel}
-        onConfirm={handleModalConfirm}
-        selectedTicket={selectedTicket}
-      />
-    </div>
+      <div className="Cancel">
+        <SearchBar id="search"onSearch={handleSearch} />
+        <div style={{ maxHeight: '300px', overflowY: 'auto' }}>
+          <TicketList data={ticketData} handleCancelTicket={handleCancelTicket} />
+        </div>
+        <TicketModal
+          open={isModalVisible}
+          onCancel={handleModalCancel}
+          onConfirm={handleModalConfirm}
+          selectedTicket={selectedTicket}
+        />
+      </div>
     </div>
   );
 };

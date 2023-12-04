@@ -1,26 +1,37 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Button, Form } from "antd";
 import "../../Stylesheets/CinemaListContainer.css";
 import DataHandler, { dataHandler } from "../../DataHandler";
 import tempImage from "../../Assets/temporary-image.png";
+
 function CinemaList() {
   const [displayMovie, setDisplayMovie] = useState(1);
+  const [schedules, setSchedules] = useState([]);
   const navigate = useNavigate();
-  const schedule = dataHandler.getfilterMoviesByDate();
+  const location = useLocation();
+  const data = location.state;
+
+  useEffect(() => {
+    setSchedules(data.movieList);
+  }, []); // The empty dependency array ensures the effect runs only once
+
+  // const moviesWithSameDate = schedules.filter(
+  //   (schedule) => schedule.movieDate === selectedDate.format("YYYY-MM-DD")
+  // );
 
   let getOneMoviePerScreen = () => {
+    // Assuming this code is within a loop iterating from 1 to 5
     const result = [];
-    // if (schedule) {
     for (let screen = 1; screen <= 5; screen++) {
-      const moviesForScreen = schedule.filter(
+      const moviesForScreen = schedules.filter(
         (movie) => movie.Screen === screen
       );
       if (moviesForScreen.length > 0) {
         result.push(moviesForScreen[0]);
       }
     }
-    // }
     return result;
   };
 
@@ -37,6 +48,8 @@ function CinemaList() {
     console.log(movie1);
     navigate("/seatlayout");
   };
+
+  console.log("asdf", schedules, "Sehcdles");
 
   return (
     <div id="cinemaListBody">
@@ -60,7 +73,7 @@ function CinemaList() {
           </button>
         </div>
 
-        {movieData.map(
+        {schedules.map(
           (movie, index) =>
             index === displayMovie && (
               <div id="listContainer" key={index}>
@@ -90,7 +103,7 @@ function CinemaList() {
                   </div>
 
                   <div id="cinemaTimeSchedule">
-                    {schedule.map(
+                    {schedules.map(
                       (movie1, index) =>
                         movie1.Screen === displayMovie + 1 && (
                           <div className="cinemaTimeContainer">
