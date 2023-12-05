@@ -11,11 +11,30 @@ function CinemaList() {
   const [schedules, setSchedules] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const selectedDate = location.state?.selectedDate;
   const data = location.state;
 
   useEffect(() => {
-    setSchedules(data.movieList);
-  }, []); // The empty dependency array ensures the effect runs only once
+    // Check if selectedDate and movieList exist
+    if (selectedDate && data.movieList) {
+      // Format the selectedDate
+      const year = selectedDate.getFullYear();
+      const month = (selectedDate.getMonth() + 1).toString().padStart(2, '0');
+      const day = selectedDate.getDate().toString();
+
+      const formattedDate = `${year}-${month}-${day}`;
+      console.log(formattedDate);
+      // Filter schedules based on the formatted date
+      const schedulesForSelectedDate = data.movieList
+        .filter(movie => movie.Date === formattedDate);
+
+      console.log(schedulesForSelectedDate);
+      setSchedules(schedulesForSelectedDate);
+    }
+  }, [selectedDate, data.movieList]);
+
+  // The empty dependency array ensures the effect runs only once
 
   // const moviesWithSameDate = schedules.filter(
   //   (schedule) => schedule.movieDate === selectedDate.format("YYYY-MM-DD")
@@ -48,29 +67,36 @@ function CinemaList() {
     console.log(movie1);
     navigate("/seatlayout?id=" + movie1._id);
   };
+  let getButtons = () => {
+    // Assuming this code is within a loop iterating from 1 to 5
+    const result = [];
+    for (let screen = 1; screen <= 5; screen++) {
+      const moviesForScreen = schedules.filter(
+        (movie) => movie.Screen === screen
+      );
+      if (moviesForScreen.length > 0) {
+        result.push(moviesForScreen[0]);
+      }
+    }
+    return result;
+  };
 
-  console.log("asdf", schedules, "Sehcdles");
+
+
 
   return (
     <div id="cinemaListBody">
       <h1 id="cinema">YamadaSans</h1>
       <div id="cinemaListContainer">
         <div id="buttonContainer">
-          <button id="buttonCList" onClick={() => onClickCinema(0)}>
-            Cinema 1
-          </button>
-          <button id="buttonCList" onClick={() => onClickCinema(1)}>
-            Cinema 2
-          </button>
-          <button id="buttonCList" onClick={() => onClickCinema(2)}>
-            Cinema 3
-          </button>
-          <button id="buttonCList" onClick={() => onClickCinema(3)}>
-            Cinema 4
-          </button>
-          <button id="buttonCList" onClick={() => onClickCinema(4)}>
-            Cinema 5
-          </button>
+          {movieData.map(
+            (movie, index) => (
+              <button id="buttonCList" onClick={() => onClickCinema(index)}>
+                Cinema {index + 1}
+              </button>
+            )
+          )
+          }
         </div>
 
         {movieData.map(
@@ -97,9 +123,8 @@ function CinemaList() {
                   <div id="cinemaDescription">
                     <p>
                       {" "}
-                   {movie.Discription}{" "}
+                      {movie.Discription}{" "}
                       <i>
-                        <b>Its not the looks but the rizz</b>
                       </i>{" "}
                     </p>
                   </div>
@@ -107,12 +132,11 @@ function CinemaList() {
                   <div id="cinemaTimeSchedule">
                     {schedules.map(
                       (movie1, index) =>
-                        (movie1.Screen === displayMovie + 1) && (
+                        (movie1.Screen === displayMovie + 1 && movie.Movie === movie1.Movie) && (
                           <div className="cinemaTimeContainer">
                             <p className="cinemaContents">{`Time : ${movie1.StartTime} - ${movie1.EndTime}`}</p>
-                            <p className="cinemaContents">{`Reserved Seats : ${
-                              movie1.Reserved ? movie1.Reserved.length : 0
-                            } out of 40`}</p>
+                            <p className="cinemaContents">{`Reserved Seats : ${movie1.Reserved ? movie1.Reserved.length : 0
+                              } out of 40`}</p>
                             <Button
                               id="selectButton"
                               onClick={() => onClickCinemaButton(movie1)}
