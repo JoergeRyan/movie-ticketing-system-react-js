@@ -20,7 +20,7 @@ const TicketModal = ({ open, onCancel, onConfirm, selectedTicket }) => {
         Are you sure you want to cancel the ticket with number  <b>{selectedTicket ? selectedTicket._id : ''}</b>?
       </p>
       <p>
-        Total Price: {selectedTicket? selectedTicket.price:'0.00'}
+        Total Price: ₱{selectedTicket? selectedTicket.price:'0.00'}
       </p>
     </Modal>
   );

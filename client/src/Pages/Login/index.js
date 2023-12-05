@@ -23,14 +23,14 @@ const Login = () => {
         console.log('Server Response:', response.data);
         // Handle the response, you might want to check for success or display a message
         if (response.data) {
-          message.success('Registration successful!');
+          message.success('Login successful!');
           navigate('/home');
         } else {
-          message.error('Registration failed. Please try again.');
+          message.error('Login failed. Please try again.');
         }
       } catch (error) {
-        console.error('An error occurred during registration:', error);
-        message.error('An error occurred during registration. Please try again.');
+        console.error('An error occurred during login:', error);
+        message.error('An error occurred during login. Please try again.');
       }
     }
   }

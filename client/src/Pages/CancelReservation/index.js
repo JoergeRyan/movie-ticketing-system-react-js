@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
+import { Button, Form } from "antd";
 import SearchBar from "./SearchBar";
 import TicketList from "./TicketList";
 import TicketModal from "./TicketModal";
 import "antd/dist/reset.css";
 import "../../Stylesheets/CancelReservation.css";
 import axios from "axios";
+import { useNavigate} from "react-router-dom";
 
 const CancelReservation = () => {
   const [searchText, setSearchText] = useState("");
   const [ticketData, setTicketData] = useState([]);
   const [selectedTicket, setSelectedTicket] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigate = useNavigate();
 
   const handleSearch = (text) => {
     setSearchText(text);
   };
+  
   async function getTickets() {
     try {
       // Make an Axios request to your server's register endpoint
@@ -37,22 +41,6 @@ const CancelReservation = () => {
     getTickets();
   }, []);
 
-  // useEffect(() => {
-  // If search text is empty, show all tickets
-  // if (!searchText.trim()) {
-  //   setTicketData(initialTicketData);
-  //   return;
-  // }
-
-  // Filter the initialTicketData based on the searchText
-  // const filteredTickets = initialTicketData.filter((ticket) =>
-  //   ticket.ticketNumber.toLowerCase().includes(searchText.toLowerCase())
-  // );
-
-  // Update the ticketData state with the filtered tickets
-  // setTicketData(filteredTickets);
-  // }, [searchText]);
-
   const handleCancelTicket = (ticket) => {
     setSelectedTicket(ticket);
     setIsModalVisible(true);
@@ -67,11 +55,6 @@ const CancelReservation = () => {
     console.log(selectedTicket);
     console.log("---");
     console.log(ticketData);
-    // Implement logic to cancel the selected ticket
-    // const updatedTickets = ticketData.filter(
-    //   (ticket) => ticket.ticketNumber !== selectedTicket.ticketNumber
-    // );
-    // console.log(id)
 
     const ticketToDelete = ticketData.find(ticket => ticket._id === selectedTicket._id);
     console.log("tickettodelete- "+ticketToDelete)
@@ -163,67 +146,14 @@ const CancelReservation = () => {
       }
     }
     getMovie(); 
-
-    // async function removeReservedSeat() {
-    //   console.log("removeReservedSeat");
-    //   try {
-    //     // Make an Axios request to delete the ticket by ID
-    //     const response = await axios.patch(
-    //       "http://localhost:5000/movies/reserve",
-    //       {
-    //         id: ticketToDelete.movieId,
-    //         Reserved: newSeats
-    //       }
-    //     );
-    //     console.log("Server Response:", response.data);
-
-    //     // Check if the delete operation was successful
-    //     if (response.status === 200) {
-    //       console.log("Delete ticket successful!");
-    //       // Perform actions after successful deletion if needed
-    //     } else {
-    //       console.error("Failed to delete ticket. Please try again.");
-    //       // Handle the error or display a message to the user
-    //     }
-    //   } catch (error) {
-    //     console.error("An error occurred during ticket deletion:", error);
-    //     // Handle the error or display a message to the user
-    //   }
-    // }
-    // removeReservedSeat();
-
-    // async function deleteTicket() {
-    //   console.log("delete");
-    //   try {
-    //     // Make an Axios request to delete the ticket by ID
-    //     const response = await axios.delete(
-    //       "http://localhost:5000/tickets/delete",
-    //       {
-    //         data: { id: selectedTicket },
-    //       }
-    //     );
-    //     window.location.reload();
-    //     console.log("Server Response:", response.data);
-
-    //     // Check if the delete operation was successful
-    //     if (response.status === 200) {
-    //       console.log("Delete ticket successful!");
-    //       // Perform actions after successful deletion if needed
-    //     } else {
-    //       console.error("Failed to delete ticket. Please try again.");
-    //       // Handle the error or display a message to the user
-    //     }
-    //   } catch (error) {
-    //     console.error("An error occurred during ticket deletion:", error);
-    //     // Handle the error or display a message to the user
-    //   }
-    // }
-    // // deleteTicket();
-    // getTickets()
-    // setTicketData(updatedTickets);
     setSelectedTicket(null);
     setIsModalVisible(false);
+
   };
+  function handleClickBack() {
+    navigate(-1);
+  }
+
 
   return (
     ticketData && (
@@ -243,6 +173,19 @@ const CancelReservation = () => {
             selectedTicket={selectedTicket}
           />
         </div>
+        <div>
+        <Button classNamne="back-button"
+            style={{
+              // marginRight: "10px",
+              color: "white",
+              backgroundColor: "red",
+            }}
+            onClick={handleClickBack}
+          >
+              Back
+          </Button>
+        </div>
+
       </div>
     )
   );

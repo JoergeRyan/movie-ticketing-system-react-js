@@ -7,7 +7,7 @@ import DataHandler, { dataHandler } from "../../DataHandler";
 import tempImage from "../../Assets/temporary-image.png";
 
 function CinemaList() {
-  const [displayMovie, setDisplayMovie] = useState(1);
+  const [displayMovie, setDisplayMovie] = useState(0);
   const [schedules, setSchedules] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,18 +68,18 @@ function CinemaList() {
           <button id="buttonCList" onClick={() => onClickCinema(3)}>
             Cinema 4
           </button>
-          {/* <button id="buttonCList" onClick={() => onClickCinema(4)}>
+          <button id="buttonCList" onClick={() => onClickCinema(4)}>
             Cinema 5
-          </button> */}
+          </button>
         </div>
 
-        {schedules.map(
+        {movieData.map(
           (movie, index) =>
             index === displayMovie && (
               <div id="listContainer" key={index}>
                 <div className="imageAndTitle">
-                  {/* <img id="imageContainer" src={tempImage} alt="Movie Poster" /> */}
-                  <div className="video-responsive">
+                  <img id="imageContainer" src={movie.imgSource} alt="Movie Poster" />
+                  {/* <div className="video-responsive">
                     <iframe
                       width="560"
                       height="315"
@@ -89,7 +89,7 @@ function CinemaList() {
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                     ></iframe>
-                  </div>
+                  </div> */}
                   <h1 id="cinemaTitle">{movie.Movie}</h1>
                 </div>
 
@@ -97,18 +97,7 @@ function CinemaList() {
                   <div id="cinemaDescription">
                     <p>
                       {" "}
-                      Cobb and Arthur are "extractors" who perform corporate
-                      espionage using experimental dream-sharing technology to
-                      infiltrate their targets' subconscious and extract
-                      information. Their latest target, Saito, is impressed with
-                      Cobb's ability to layer multiple dreams within each other.
-                      He offers to hire Cobb for the ostensibly impossible job
-                      of implanting an idea into a person's subconscious;
-                      performing "inception" on Robert Fischer, the son of
-                      Saito's competitor Maurice Fischer, with the idea to
-                      dissolve his father's company. In return, Saito promises
-                      to clear Cobb's criminal status, allowing him to return
-                      home to his children.{" "}
+                   {movie.Discription}{" "}
                       <i>
                         <b>Its not the looks but the rizz</b>
                       </i>{" "}

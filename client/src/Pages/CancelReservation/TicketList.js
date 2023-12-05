@@ -8,8 +8,9 @@ const TicketList = ({ data, handleCancelTicket }) => {
       dataSource={data}
       renderItem={(item) => (
         <List.Item className="list-item">
-          <h1>Movie: {item.movieName}</h1>
-          <h1>Senior Citizen: {item.numSenior}</h1>
+          Movie: {item.movieName}
+          <br />
+          Senior Citizen: {item.numSenior}
           <Button type="primary" onClick={() => handleCancelTicket(item)}>
             Cancel
           </Button>
