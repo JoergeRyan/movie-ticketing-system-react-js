@@ -21,42 +21,42 @@ const getOneMovie = async (req, res) => {
 };
 
 
-const updateMovie = async (req, res) => {
-  const {
-    movieId,
-    movieTitle,
-    cinemaNumber,
-    startDate,
-    isPremiere,
-    duration,
-    image,
-  } = req.body;
+// const updateMovie = async (req, res) => {
+//   const {
+//     movieId,
+//     movieTitle,
+//     cinemaNumber,
+//     startDate,
+//     isPremiere,
+//     duration,
+//     image,
+//   } = req.body;
 
-  try {
-    const updatedMovie = await Movie.findOneAndUpdate(
-      { _id: movieId },
-      {
-        $set: {
-          movieTitle,
-          cinemaNumber,
-          startDate,
-          isPremiere,
-          duration,
-          image,
-        },
-      },
-      { new: true }
-    );
+//   try {
+//     const updatedMovie = await Movie.findOneAndUpdate(
+//       { _id: movieId },
+//       {
+//         $set: {
+//           movieTitle,
+//           cinemaNumber,
+//           startDate,
+//           isPremiere,
+//           duration,
+//           image,
+//         },
+//       },
+//       { new: true }
+//     );
 
-    if (!updatedMovie) {
-      return res.status(404).json({ message: "Movie not found" });
-    }
+//     if (!updatedMovie) {
+//       return res.status(404).json({ message: "Movie not found" });
+//     }
 
-    res.status(200).json(updatedMovie);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
+//     res.status(200).json(updatedMovie);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// };
 
 
 
@@ -88,4 +88,4 @@ const reserveMovie = async (req, res) => {
   }
 };
 
-module.exports = { getMovies, getOneMovie, updateMovie, reserveMovie };
+module.exports = { getMovies, getOneMovie, reserveMovie };

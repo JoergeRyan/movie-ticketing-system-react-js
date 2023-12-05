@@ -18,7 +18,7 @@ const CancelReservation = () => {
   const handleSearch = (text) => {
     setSearchText(text);
   };
-  
+  //The function is declared with the async keyword, asynchronous operations and will return a promise.
   async function getTickets() {
     try {
       // Make an Axios request to your server's register endpoint

@@ -48,14 +48,6 @@ function SeatLayout() {
     getMovie();
   }, []);
 
-  // useEffect(() => {
-  //   if (selectedMovie) {
-  // document.body.style.backgroundImage = `url('${selectedMovie.imgSource}')`;
-  // document.body.style.backgroundSize = "cover";
-  // document.bofy.style.backroundRepeat = "no-repeat";
-  // }
-  // }, [selectedMovie]);
-
   useEffect(() => {
     let totalSeats = selectedSeats.length;
     let pricePerSeat = 350;
